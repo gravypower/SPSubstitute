@@ -1,26 +1,17 @@
-﻿using System;
-using Microsoft.SharePoint;
-using NUnit.Framework;
-using SPSubstitute;
-
-namespace SPSubstituteTests
+﻿namespace SPSubstituteTests
 {
+    using System;
+    using NUnit.Framework;
+    using Microsoft.SharePoint;
+    using Microsoft.SharePoint.Fakes;
+
     [TestFixture]
-    public class SubstituteExtensionsTests
+    public class SubstituteSpSiteTests : SubstituteTests
     {
-        protected SPSubstituteContext Sut;
-
         [SetUp]
-        public virtual void SetUp()
+        public virtual void FixtureSetUp()
         {
-            Sut = SPSubstituteContext.NewContext();
-        }
-
-        [TearDown]
-        public virtual void TearDown()
-        {
-            Sut.Dispose();
-            Sut = null;
+            Sut.SetUpForSpSite();
         }
 
         [Test]
@@ -29,7 +20,7 @@ namespace SPSubstituteTests
             //Arrange
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
 
-            var mockedSite = Sut.MockSite(guild);
+            var mockedSite = Sut.MockSpSite(guild);
 
             //Act
 
@@ -40,7 +31,7 @@ namespace SPSubstituteTests
             }
 
             //Assert
-            Assert.AreSame(mockedSite.SpSite, spSite);
+            Assert.AreSame(spSite, mockedSite.SpSite);
         }
 
         [Test]
@@ -48,7 +39,7 @@ namespace SPSubstituteTests
         {
             //Arrange
             var requestUrl = "http://SomeURL";
-            var mockedSite = Sut.MockSite(requestUrl);
+            var mockedSite = Sut.MockSpSite(requestUrl);
 
             //Act
             SPSite spSite;
@@ -58,8 +49,9 @@ namespace SPSubstituteTests
             }
 
             //Assert
-            Assert.AreSame(mockedSite.SpSite, spSite);
+            Assert.AreSame(spSite, mockedSite.SpSite);
         }
+
 
         [Test]
         public void CanSubstitutePortalNameWithMockedSiteFromRequestUrl()
@@ -67,15 +59,15 @@ namespace SPSubstituteTests
             //Arrange
             var requestUrl = "http://SomeURL";
             var portalName = "SomeTitle";
-            var mockedSite = Sut.MockSite(requestUrl);
+            var mockedSite = Sut.MockSpSite(requestUrl);
             
             //Act
-            mockedSite.PortalName.Returns(portalName);
+            mockedSite.PortalName.DoMap(portalName);
 
             //Assert
             using (var site = new SPSite(requestUrl))
             {
-                Assert.AreSame(site.PortalName, portalName);
+                Assert.AreSame(portalName, site.PortalName);
             }
             
         }
@@ -86,15 +78,35 @@ namespace SPSubstituteTests
             //Arrange
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
             var portalName = "SomeTitle";
-            var mockedSite = Sut.MockSite(guild);
+            var mockedSite = Sut.MockSpSite(guild);
 
             //Act
-            mockedSite.PortalName.Returns(portalName);
+            mockedSite.PortalName.DoMap(portalName);
 
             //Assert
             using (var site = new SPSite(guild))
             {
-                Assert.AreEqual(site.PortalName, portalName);
+                Assert.AreEqual(portalName, site.PortalName);
+            }
+        }
+
+        [Test]
+        public void CanSubstituteSpWebTemplateCollection()
+        {
+            //Arrange
+            var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
+            var mockedSite = Sut.MockSpSite(guild);
+            var templateCollection = new ShimSPWebTemplateCollection();
+            uint lcid = 1033;
+
+            //Act
+            mockedSite.WebTemplates(lcid).DoMap(templateCollection);
+
+
+            //Assert
+            using (var site = new SPSite(guild))
+            {
+                Assert.AreSame((SPWebTemplateCollection)templateCollection, site.GetWebTemplates(lcid));
             }
         }
     }

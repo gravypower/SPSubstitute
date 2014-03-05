@@ -2,6 +2,8 @@
 
 namespace SPSubstitute
 {
+    using SPSubstitute.Substitutes.SpSite;
+
     public class ShimSpSiteConstructors
     {
         public static void Guid(ISpSites sites)

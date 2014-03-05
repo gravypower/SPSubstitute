@@ -1,21 +1,11 @@
-﻿using Microsoft.SharePoint.Fakes;
-
-namespace SPSubstitute.Substitutes
+﻿namespace SPSubstitute.Substitutes
 {
-    public abstract class Substitute<TSubstitute>
+    public class Substitute<TSharePointType> : Substitute
+        where TSharePointType:class 
     {
-        protected readonly SpSubstituteSite SpSubstituteSite;
+    }
 
-        protected Substitute(SpSubstituteSite spSubstituteSite)
-        {
-            SpSubstituteSite = spSubstituteSite;
-        }
-
-        public void Returns(TSubstitute value)
-        {
-            SpSubstituteSite.Actions.Add(site => Map(site, value));
-        }
-
-        protected abstract void Map(ShimSPSite site, TSubstitute value);
+    public class Substitute
+    {
     }
 }
