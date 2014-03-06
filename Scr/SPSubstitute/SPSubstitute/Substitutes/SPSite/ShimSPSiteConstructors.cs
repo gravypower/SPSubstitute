@@ -1,38 +1,37 @@
 ﻿using Microsoft.SharePoint.Fakes;
+using SPSubstitute.Substitutes.SpSite;
 
-namespace SPSubstitute
+namespace SPSubstitute.Substitutes.SPSite
 {
-    using SPSubstitute.Substitutes.SpSite;
-
     public class ShimSpSiteConstructors
     {
-        public static void Guid(ISpSites sites)
+        public static void Guid(SpSites sites)
         {
             ShimSPSite.ConstructorGuid = (site, guid) =>
             {
                 var shimSite = new ShimSPSite(site);
 
+                sites[guid].Shim = shimSite;
+
                 foreach (var action in sites[guid].Actions)
                 {
                     action.Invoke(shimSite);
                 }
-
-                sites[guid].ShimSpSite = shimSite;
             };
         }
 
-        public static void RequestUrl(ISpSites sites)
+        public static void RequestUrl(SpSites sites)
         {
             ShimSPSite.ConstructorString = (site, requestUrl) =>
             {
                 var shimSite = new ShimSPSite(site);
 
+                sites[requestUrl].Shim = shimSite;
+
                 foreach (var action in sites[requestUrl].Actions)
                 {
                     action.Invoke(shimSite);
                 }
-
-                sites[requestUrl].ShimSpSite = shimSite;
             };
         }
     }

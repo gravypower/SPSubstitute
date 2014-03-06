@@ -3,7 +3,7 @@ using Microsoft.QualityTools.Testing.Fakes;
 
 namespace SPSubstitute
 {
-    public partial class SpSubstituteContext : IDisposable
+    public class SpSubstituteContext : IDisposable
     {
         protected IDisposable ShimContext;
 

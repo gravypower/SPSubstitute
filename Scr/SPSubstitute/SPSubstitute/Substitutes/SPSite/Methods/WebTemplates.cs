@@ -1,17 +1,25 @@
-﻿namespace SPSubstitute.Substitutes.SpSite.Methods
-{
-    using Microsoft.SharePoint.Fakes;
+﻿using Microsoft.SharePoint;
+using SPSubstitute.Substitutes.SPSite;
 
-    public class WebTemplates : Map<ShimSPWebTemplateCollection>
+namespace SPSubstitute.Substitutes.SpSite.Methods
+{
+    public class WebTemplates : Map
     {
+        private readonly SubstituteSpSite _substituteSpSite;
+
         public WebTemplates(SubstituteSpSite substituteSpSite)
-            : base(substituteSpSite)
         {
+            _substituteSpSite = substituteSpSite;
         }
 
-        protected override void MapValue(ShimSPSite site, ShimSPWebTemplateCollection value)
+        public override void DoMap(object value)
         {
-            site.GetWebTemplatesUInt32 = u => value;
+            _substituteSpSite.Shim.GetWebTemplatesUInt32 = u => (SPWebTemplateCollection)value;
+        }
+
+        public override void MapValue(object value)
+        {
+            _substituteSpSite.Actions.Add(site => DoMap(value));
         }
     }
 }

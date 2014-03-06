@@ -1,17 +1,27 @@
-﻿namespace SPSubstitute.Substitutes.SpSite.Properties
-{
-    using Microsoft.SharePoint.Fakes;
+﻿using SPSubstitute.Substitutes.SPSite;
 
-    public class PortalName : Map<string>
+namespace SPSubstitute.Substitutes.SpSite.Properties
+{
+    public class PortalName : Map
     {
+        private readonly SubstituteSpSite _substituteSpSite;
+
+        public string Value { get; set; }
+
         public PortalName(SubstituteSpSite substituteSpSite)
-            : base(substituteSpSite)
         {
+            _substituteSpSite = substituteSpSite;
         }
 
-        protected override void MapValue(ShimSPSite site, string value)
+        public override void MapValue(object value)
         {
-            site.PortalNameGet = () => value;
+            _substituteSpSite.Actions.Add(site => DoMap(value));
+            
+        }
+
+        public override void DoMap(object value)
+        {
+            _substituteSpSite.Shim.PortalNameGet = () => (string)value;
         }
     }
 }

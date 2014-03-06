@@ -1,10 +1,19 @@
-﻿namespace SPSubstitute
+﻿using SPSubstitute.Substitutes;
+
+namespace SPSubstitute
 {
     public static class SpSubstituteExtensions
     {
-        public static void Returns<T>(this T value, T returnThis, params T[] returnThese)
+        public static void Returns<T>(this T value, SpSubstitute returnThis, params T[] returnThese)
+            where T : Map
         {
-            var x = true;
+            value.MapValue(returnThis);
+        }
+
+        public static void Returns<T>(this T value, object returnThis, params T[] returnThese)
+            where T : Map
+        {
+            value.MapValue(returnThis);
         }
     }
 }

@@ -1,9 +1,11 @@
-﻿namespace SPSubstitute.Substitutes.SpSite
+﻿using SPSubstitute.Substitutes.SPSite;
+
+namespace SPSubstitute.Substitutes.SpSite
 {
     using System;
     using System.Collections.Generic;
 
-    public class SpSites : ISpSites
+    public class SpSites
     {
         public SpSites ()
         {
@@ -16,11 +18,9 @@
         {
             get
             {
-                if (!this.guildSites.ContainsKey(guid))
-                    this.guildSites.Add(guid, new SubstituteSpSite());
-
                 return this.guildSites[guid];
             }
+            set { this.guildSites[guid] = value; }
         }
 
         private readonly Dictionary<string, SubstituteSpSite> requestUrlSites;
@@ -28,11 +28,9 @@
         {
             get
             {
-                if (!this.requestUrlSites.ContainsKey(requestUrl))
-                    this.requestUrlSites.Add(requestUrl, new SubstituteSpSite());
-
                 return this.requestUrlSites[requestUrl];
             }
+            set { this.requestUrlSites[requestUrl] = value; }
         }
     }
 }
