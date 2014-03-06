@@ -5,7 +5,7 @@ namespace SPSubstitute.Substitutes.SPSite
 {
     public class ShimSpSiteConstructors
     {
-        public static void Guid(SpSites sites)
+        public static void Guid(Sites sites)
         {
             ShimSPSite.ConstructorGuid = (site, guid) =>
             {
@@ -20,7 +20,7 @@ namespace SPSubstitute.Substitutes.SPSite
             };
         }
 
-        public static void RequestUrl(SpSites sites)
+        public static void RequestUrl(Sites sites)
         {
             ShimSPSite.ConstructorString = (site, requestUrl) =>
             {

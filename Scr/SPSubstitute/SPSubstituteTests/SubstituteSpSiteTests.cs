@@ -7,7 +7,6 @@ namespace SPSubstituteTests
     using System;
     using NUnit.Framework;
     using Microsoft.SharePoint;
-    using Microsoft.SharePoint.Fakes;
 
     [TestFixture]
     public class SubstituteSpSiteTests : SubstituteTests

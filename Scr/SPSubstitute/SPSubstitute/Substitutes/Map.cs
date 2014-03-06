@@ -1,6 +1,15 @@
 ﻿namespace SPSubstitute.Substitutes
 {
-    public abstract class Map
+    public interface IMap
+    {
+        void MapValue(SpSubstitute value);
+
+        void MapValue(object value);
+
+        void DoMap(object value);
+    }
+
+    public abstract class Map : IMap
     {
         public void MapValue(SpSubstitute value)
         {

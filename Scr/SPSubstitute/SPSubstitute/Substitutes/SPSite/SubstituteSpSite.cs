@@ -8,9 +8,9 @@ namespace SPSubstitute.Substitutes.SPSite
 {
     public class SubstituteSpSite : SpSubstitute<ShimSPSite, Microsoft.SharePoint.SPSite>
     {
-        public SpSites Sites;
+        public Sites Sites;
 
-        public PortalName PortalName;
+        public PortalNameSubstitute PortalName;
 
         public SubstituteSpSite(Guid guid)
             : this()
@@ -28,13 +28,13 @@ namespace SPSubstitute.Substitutes.SPSite
 
         private SubstituteSpSite()
         {
-            Sites = new SpSites();
-            PortalName = new PortalName(this);
+            Sites = new Sites();
+            this.PortalName = new PortalNameSubstitute(this);
         }
 
-        public WebTemplates WebTemplates(uint lcid)
+        public WebTemplatesSubstitute WebTemplates(uint lcid)
         {
-            return new WebTemplates(this);
+            return new WebTemplatesSubstitute(this);
         }
     }
 }

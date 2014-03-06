@@ -44,14 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SPSubstitute.cs" />
+    <Compile Include="Substitutes\SpSubstitute.cs" />
     <Compile Include="SpSubstituteExtensions.cs" />
-    <Compile Include="Substitutes\SPSite\ShimSPSiteConstructors.cs" />
-    <Compile Include="Substitutes\SPSite\SpSites.cs" />
-    <Compile Include="SpSubstituteContext.cs" />
-    <Compile Include="Substitutes\SPSite\Methods\WebTemplates.cs" />
-    <Compile Include="Substitutes\SPSite\SubstituteSpSite.cs" />
-    <Compile Include="Substitutes\SPSite\Properties\PortalName.cs" />
+    <Compile Include="Substitutes\SpSite\ShimSPSiteConstructors.cs" />
+    <Compile Include="Substitutes\SpSite\Sites.cs" />
+    <Compile Include="Substitutes\SpSite\Methods\WebTemplatesSubstitute.cs" />
+    <Compile Include="Substitutes\SpSite\SubstituteSpSite.cs" />
+    <Compile Include="Substitutes\SpSite\Properties\PortalNameSubstitute.cs" />
     <Compile Include="Substitutes\SpWebTemplateCollection\SubstituteSpWebTemplateCollection.cs" />
     <Compile Include="Substitutes\Map.cs" />
   </ItemGroup>

@@ -1,25 +1,27 @@
 ﻿namespace SPSubstituteTests
 {
-    using NUnit.Framework;
+    using System;
 
-    using SPSubstitute;
+    using Microsoft.QualityTools.Testing.Fakes;
+
+    using NUnit.Framework;
 
     [TestFixture]
     public abstract class SubstituteTests
     {
-        protected SpSubstituteContext Sut;
+        protected IDisposable ShimContext;
 
         [SetUp]
         public virtual void SetUp()
         {
-            Sut = SpSubstituteContext.NewContext();
+            ShimContext = ShimsContext.Create();
         }
 
         [TearDown]
         public virtual void TearDown()
         {
-            Sut.Dispose();
-            Sut = null;
+            ShimContext.Dispose();
+            ShimContext = null;
         }
     }
 }
