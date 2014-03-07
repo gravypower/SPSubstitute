@@ -11,15 +11,10 @@ namespace SPSubstitute.Substitutes.SpFarm.Tasks
         public override void Run()
         {
             ShimSPFarm.LocalGet = () =>
-            {
-                SpSubstitute.Shim = new ShimSPFarm();
-                foreach (var action in SpSubstitute.Actions)
                 {
-                    action.Invoke(SpSubstitute.Shim);
-                }
-
-                return SpSubstitute.SpType;
-            };
+                    this.SpSubstitute.Invoke();
+                    return this.SpSubstitute.SpType;
+                };
         }
     }
 }

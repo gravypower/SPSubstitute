@@ -8,5 +8,8 @@ namespace SPSubstitute.Substitutes.SpWebApplication
     {
         public SitesSubstitute Sites;
 
+        public SubstituteSpWebApplication()
+        {
+        }
     }
 }

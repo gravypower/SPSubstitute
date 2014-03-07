@@ -8,15 +8,12 @@ namespace SPSubstitute.Substitutes.SpFarm
 {
     public class SubstituteSpFarm : SpSubstitute<ShimSPFarm, SPFarm>
     {
-        public static SubstituteSpFarm Local { get; private set; }
-
         public Objects Objects { get; private set; }
 
         public SubstituteSpFarm()
         {
-            Local = this;
-            Objects = new Objects();
             new LocalGet(this).Run();
+            Objects = new Objects();
         }
 
         public GetObjectSubstitute GetObject(Guid id)

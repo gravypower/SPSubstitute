@@ -2,7 +2,9 @@
 
 namespace SPSubstitute.Substitutes.SpFarm.Methods
 {
-    public class GetObjectSubstitute : Map
+    using Microsoft.SharePoint.Administration.Fakes;
+
+    public class GetObjectSubstitute : SpSubstitute<ShimSPPersistedObject, SPPersistedObject>, IMap
     {
         private readonly SubstituteSpFarm substituteSpFarm;
 
@@ -11,14 +13,24 @@ namespace SPSubstitute.Substitutes.SpFarm.Methods
             this.substituteSpFarm = substituteSpFarm;
         }
 
-        public override void MapValue(object value)
-        {
-            substituteSpFarm.Shim.GetObjectGuid = guid => (SPPersistedObject)value;
-        }
-
-        public override void DoMap(object value)
+        public void MapValue(object value)
         {
             substituteSpFarm.Actions.Add(site => DoMap(value));
+        }
+
+        public void DoMap(object value)
+        {
+            substituteSpFarm.Shim.GetObjectGuid = guid =>
+                {
+                    var spPersistedObject = (SPPersistedObject)value;
+                    this.substituteSpFarm.Objects[spPersistedObject.Id].Shim = new ShimSPPersistedObject(spPersistedObject);
+                    return this.substituteSpFarm.Objects[guid].SpType;
+                };
+        }
+
+        public void MapValue(SpSubstitute value)
+        {
+            MapValue(value.GetValueForMapping());
         }
     }
 }

@@ -18,6 +18,17 @@
 
         internal List<System.Action<TShim>> Actions;
 
+        internal void Invoke()
+        {
+            if (Shim != null) return;
+
+            Shim = new TShim();
+            foreach (var action in Actions)
+            {
+                action.Invoke(Shim);
+            }
+        }
+
         protected SpSubstitute()
         {
             Actions = new List<System.Action<TShim>>();
@@ -25,6 +36,7 @@
 
         internal override object GetValueForMapping()
         {
+            Invoke();
             return SpType;
         }
     }
