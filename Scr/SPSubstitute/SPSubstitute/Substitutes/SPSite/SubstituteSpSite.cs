@@ -3,6 +3,7 @@ using Microsoft.SharePoint.Fakes;
 using SPSubstitute.Substitutes.SpSite;
 using SPSubstitute.Substitutes.SpSite.Methods;
 using SPSubstitute.Substitutes.SpSite.Properties;
+using SPSubstitute.Substitutes.SpSite.Tasks;
 
 namespace SPSubstitute.Substitutes.SPSite
 {
@@ -16,14 +17,14 @@ namespace SPSubstitute.Substitutes.SPSite
             : this()
         {
             Sites[guid] = this;
-            ShimSpSiteConstructors.Guid(Sites);
+            new ConstructorGuid(this).Run();
         }
 
         public SubstituteSpSite(string requestUrl)
             : this()
         {
             Sites[requestUrl] = this;
-            ShimSpSiteConstructors.RequestUrl(Sites);
+            new ConstructorString(this).Run();
         }
 
         private SubstituteSpSite()

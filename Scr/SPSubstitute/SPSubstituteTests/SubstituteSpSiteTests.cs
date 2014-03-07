@@ -12,7 +12,7 @@ namespace SPSubstituteTests
     public class SubstituteSpSiteTests : SubstituteTests
     {
         [Test]
-        public void CanMockSiteWithGuid()
+        public void CanSubstituteSiteWithGuid()
         {
             //Arrange
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
@@ -31,7 +31,7 @@ namespace SPSubstituteTests
         }
 
         [Test]
-        public void CanMockSiteRequestUrl()
+        public void CanSubstituteSiteRequestUrl()
         {
             //Arrange
             var requestUrl = "http://SomeURL";

@@ -3,35 +3,34 @@
     using System.Collections.Generic;
 
     using Microsoft.QualityTools.Testing.Fakes.Shims;
-    using Microsoft.SharePoint.Fakes;
 
     public abstract class SpSubstitute<TShim, TSpType> : SpSubstitute
         where TSpType : class
         where TShim : ShimBase<TSpType>, new ()
     {
 
-        public TShim Shim;
+        public TShim Shim { get; internal set; }
 
         public TSpType SpType
         {
             get { return this.Shim; }
         }
 
-        public List<System.Action<ShimSPSite>> Actions;
+        internal List<System.Action<TShim>> Actions;
 
         protected SpSubstitute()
         {
-            this.Actions = new List<System.Action<ShimSPSite>>();
+            Actions = new List<System.Action<TShim>>();
         }
 
-        public override object GetValueForMapping()
+        internal override object GetValueForMapping()
         {
-            return this.SpType;
+            return SpType;
         }
     }
 
     public abstract class SpSubstitute
     {
-        public abstract object GetValueForMapping();
+        internal abstract object GetValueForMapping();
     }
 }

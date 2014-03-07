@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubstituteSpFarmTests.cs" />
     <Compile Include="SubstituteSpSiteTests.cs" />
+    <Compile Include="SubstituteSpWebApplicationTests.cs" />
     <Compile Include="SubstituteSpWebTemplateCollectionTests.cs" />
     <Compile Include="SubstituteTests.cs" />
   </ItemGroup>

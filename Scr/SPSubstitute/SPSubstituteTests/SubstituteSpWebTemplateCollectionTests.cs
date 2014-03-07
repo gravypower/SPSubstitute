@@ -1,7 +1,7 @@
-﻿namespace SPSubstituteTests
-{
-    using Microsoft.SharePoint;
+﻿using SPSubstitute;
 
+namespace SPSubstituteTests
+{
     using NUnit.Framework;
 
     using SPSubstitute.Substitutes.SpWebTemplateCollection;
@@ -15,9 +15,9 @@
             //Arrange
             var templateCollection = new SubstituteSpWebTemplateCollection();
 
-            templateCollection.Returns 
+            //templateCollection.Returns();
 
-            var t = new SPWebTemplate();
+            //var t = new SPWebTemplate();
 
             //templateCollection.
 

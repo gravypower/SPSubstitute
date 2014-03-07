@@ -44,19 +44,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Substitutes\SpFarm\Methods\GetObjectSubstitute.cs" />
+    <Compile Include="Substitutes\SpFarm\Objects.cs" />
+    <Compile Include="Substitutes\SpFarm\SubstituteSpFarm.cs" />
+    <Compile Include="Substitutes\SpFarm\Tasks\GetObjectGuid.cs" />
+    <Compile Include="Substitutes\SpFarm\Tasks\LocalGet.cs" />
+    <Compile Include="Substitutes\SpPersistedObject\SubstituteSpPersistedObject.cs" />
+    <Compile Include="Substitutes\SpSite\Tasks\ConstructorGuid.cs" />
+    <Compile Include="Substitutes\SpSite\Tasks\ConstructorString.cs" />
     <Compile Include="Substitutes\SpSubstitute.cs" />
     <Compile Include="SpSubstituteExtensions.cs" />
-    <Compile Include="Substitutes\SpSite\ShimSPSiteConstructors.cs" />
     <Compile Include="Substitutes\SpSite\Sites.cs" />
     <Compile Include="Substitutes\SpSite\Methods\WebTemplatesSubstitute.cs" />
     <Compile Include="Substitutes\SpSite\SubstituteSpSite.cs" />
     <Compile Include="Substitutes\SpSite\Properties\PortalNameSubstitute.cs" />
+    <Compile Include="Substitutes\SpWebApplication\Properties\SitesSubstitute.cs" />
+    <Compile Include="Substitutes\SpWebApplication\SubstituteSpWebApplication.cs" />
     <Compile Include="Substitutes\SpWebTemplateCollection\SubstituteSpWebTemplateCollection.cs" />
     <Compile Include="Substitutes\Map.cs" />
+    <Compile Include="Substitutes\SpWebTemplate\SubstituteSpWebTemplate.cs" />
+    <Compile Include="Task.cs" />
   </ItemGroup>
   <ItemGroup>
     <Fakes Include="Fakes\Microsoft.SharePoint.fakes" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
