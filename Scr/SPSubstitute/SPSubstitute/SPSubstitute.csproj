@@ -43,18 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Substitutes\SpFarm\Methods\GetObjectSubstitute.cs" />
-    <Compile Include="Substitutes\SpFarm\Objects.cs" />
+    <Compile Include="Substitutes\SpFarm\Collections\Objects.cs" />
     <Compile Include="Substitutes\SpFarm\SubstituteSpFarm.cs" />
     <Compile Include="Substitutes\SpFarm\Tasks\GetObjectGuid.cs" />
     <Compile Include="Substitutes\SpFarm\Tasks\LocalGet.cs" />
     <Compile Include="Substitutes\SpPersistedObject\SubstituteSpPersistedObject.cs" />
+    <Compile Include="Substitutes\SpSite\Collections\WebTemplateCollections.cs" />
     <Compile Include="Substitutes\SpSite\Tasks\ConstructorGuid.cs" />
     <Compile Include="Substitutes\SpSite\Tasks\ConstructorString.cs" />
     <Compile Include="Substitutes\SpSubstitute.cs" />
     <Compile Include="SpSubstituteExtensions.cs" />
-    <Compile Include="Substitutes\SpSite\Sites.cs" />
+    <Compile Include="Substitutes\SpSite\Collections\Sites.cs" />
     <Compile Include="Substitutes\SpSite\Methods\WebTemplatesSubstitute.cs" />
     <Compile Include="Substitutes\SpSite\SubstituteSpSite.cs" />
     <Compile Include="Substitutes\SpSite\Properties\PortalNameSubstitute.cs" />

@@ -1,36 +1,32 @@
-﻿using Microsoft.SharePoint.Administration;
-
-namespace SPSubstitute.Substitutes.SpFarm.Methods
+﻿namespace SPSubstitute.Substitutes.SpFarm.Methods
 {
-    using Microsoft.SharePoint.Administration.Fakes;
+    using System;
 
-    public class GetObjectSubstitute : SpSubstitute<ShimSPPersistedObject, SPPersistedObject>, IMap
+    using Microsoft.SharePoint.Administration;
+
+    using SPSubstitute.Substitutes.SpPersistedObject;
+
+    public class GetObjectSubstitute : Map
     {
         private readonly SubstituteSpFarm substituteSpFarm;
 
-        public GetObjectSubstitute(SubstituteSpFarm substituteSpFarm)
+        private readonly Guid objectId;
+
+        public GetObjectSubstitute(SubstituteSpFarm substituteSpFarm, Guid objectId)
         {
+            this.objectId = objectId;
             this.substituteSpFarm = substituteSpFarm;
         }
 
-        public void MapValue(object value)
+        public override void MapObjectValue(object value)
         {
-            substituteSpFarm.Actions.Add(site => DoMap(value));
+            this.substituteSpFarm.Objects[objectId] = new SubstituteSpPersistedObject((SPPersistedObject)value);
+            substituteSpFarm.Actions.Add(site => DoMap());
         }
 
-        public void DoMap(object value)
+        public void DoMap()
         {
-            substituteSpFarm.Shim.GetObjectGuid = guid =>
-                {
-                    var spPersistedObject = (SPPersistedObject)value;
-                    this.substituteSpFarm.Objects[spPersistedObject.Id].Shim = new ShimSPPersistedObject(spPersistedObject);
-                    return this.substituteSpFarm.Objects[guid].SpType;
-                };
-        }
-
-        public void MapValue(SpSubstitute value)
-        {
-            MapValue(value.GetValueForMapping());
+            this.substituteSpFarm.Shim.GetObjectGuid = guid => this.substituteSpFarm.Objects[guid].SpType;
         }
     }
 }

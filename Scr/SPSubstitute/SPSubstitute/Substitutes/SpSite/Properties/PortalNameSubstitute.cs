@@ -1,6 +1,4 @@
-﻿using SPSubstitute.Substitutes.SPSite;
-
-namespace SPSubstitute.Substitutes.SpSite.Properties
+﻿namespace SPSubstitute.Substitutes.SpSite.Properties
 {
     public class PortalNameSubstitute : Map
     {
@@ -13,13 +11,13 @@ namespace SPSubstitute.Substitutes.SpSite.Properties
             this.substituteSpSite = substituteSpSite;
         }
 
-        public override void MapValue(object value)
+        public override void MapObjectValue(object value)
         {
             this.substituteSpSite.Actions.Add(site => DoMap(value));
             
         }
 
-        public override void DoMap(object value)
+        public void DoMap(object value)
         {
             this.substituteSpSite.Shim.PortalNameGet = () => (string)value;
         }

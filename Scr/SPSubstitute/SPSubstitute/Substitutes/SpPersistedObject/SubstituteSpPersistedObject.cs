@@ -7,7 +7,7 @@ namespace SPSubstitute.Substitutes.SpPersistedObject
     {
         public SubstituteSpPersistedObject(SPPersistedObject persistedObject)
         {
-            //Shim = new ShimSPPersistedObject(persistedObject);
+            Shim = new ShimSPPersistedObject(persistedObject);
         }
     }
 }

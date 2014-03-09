@@ -18,8 +18,8 @@ namespace SPSubstituteTests
             var substituteSpFarm = new SubstituteSpFarm();
 
             //Assert
-            Assert.IsNotNull(SPFarm.Local);
-            Assert.AreSame(substituteSpFarm.SpType, SPFarm.Local);
+            Assert.That(SPFarm.Local, Is.Not.Null);
+            Assert.That(SPFarm.Local, Is.SameAs(substituteSpFarm.SpType));
         }
 
         [Test]
@@ -35,9 +35,9 @@ namespace SPSubstituteTests
 
 
             //Assert
-            Assert.IsNotNull(SPFarm.Local);
-            Assert.IsNotNull(SPFarm.Local.GetObject(guild));
-            Assert.AreSame(webApplication.SpType, SPFarm.Local.GetObject(guild));
+            Assert.That(SPFarm.Local, Is.Not.Null);
+            Assert.That(SPFarm.Local.GetObject(guild), Is.Not.Null);
+            Assert.That(SPFarm.Local.GetObject(guild), Is.SameAs(webApplication.SpType));
         }
 
         [Test]
@@ -58,13 +58,13 @@ namespace SPSubstituteTests
 
 
             //Assert
-            Assert.IsNotNull(SPFarm.Local);
+            Assert.That(SPFarm.Local, Is.Not.Null);
 
-            Assert.IsNotNull(SPFarm.Local.GetObject(guildOne));
-            Assert.AreSame(webApplicationOne.SpType, SPFarm.Local.GetObject(guildOne));
+            Assert.That(SPFarm.Local.GetObject(guildOne), Is.Not.Null);
+            Assert.That(SPFarm.Local.GetObject(guildOne), Is.SameAs(webApplicationOne.SpType));
 
-            Assert.IsNotNull(SPFarm.Local.GetObject(guildTwo));
-            Assert.AreSame(webApplicationTwo.SpType, SPFarm.Local.GetObject(guildTwo));
+            Assert.That(SPFarm.Local.GetObject(guildTwo), Is.Not.Null);
+            Assert.That(SPFarm.Local.GetObject(guildTwo), Is.SameAs(webApplicationTwo.SpType));
         }
     }
 }

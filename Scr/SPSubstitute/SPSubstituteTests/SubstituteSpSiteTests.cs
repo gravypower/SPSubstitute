@@ -1,5 +1,5 @@
 ﻿using SPSubstitute;
-using SPSubstitute.Substitutes.SPSite;
+using SPSubstitute.Substitutes.SpSite;
 using SPSubstitute.Substitutes.SpWebTemplateCollection;
 
 namespace SPSubstituteTests
@@ -27,7 +27,7 @@ namespace SPSubstituteTests
             }
 
             //Assert
-            Assert.AreSame(spSite, substituteSpSite.SpType);
+            Assert.That(substituteSpSite.SpType, Is.SameAs(spSite));
         }
 
         [Test]
@@ -46,7 +46,7 @@ namespace SPSubstituteTests
             }
 
             //Assert
-            Assert.AreSame(spSite, substituteSpSite.SpType);
+            Assert.That(substituteSpSite.SpType, Is.SameAs(spSite));
         }
 
 
@@ -65,13 +65,13 @@ namespace SPSubstituteTests
             //Assert
             using (var site = new SPSite(requestUrl))
             {
-                Assert.AreSame(portalName, site.PortalName);
+                Assert.That(site.PortalName, Is.SameAs(portalName));
             }
             
         }
 
         [Test]
-        public void CanSubstitutePortalNameWithMockedSiteFromGuid()
+        public void CanReturnPortalNameWithMockedSiteFromGuid()
         {
             //Arrange
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
@@ -84,12 +84,12 @@ namespace SPSubstituteTests
             //Assert
             using (var site = new SPSite(guild))
             {
-                Assert.AreEqual(portalName, site.PortalName);
+                Assert.That(site.PortalName, Is.SameAs(portalName));
             }
         }
 
         [Test]
-        public void CanSubstituteSpWebTemplateCollection()
+        public void CanReturnSpWebTemplateCollectionFromLcid()
         {
             //Arrange
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
@@ -104,7 +104,32 @@ namespace SPSubstituteTests
             //Assert
             using (var site = new SPSite(guild))
             {
-                Assert.AreSame(templateCollection.SpType, site.GetWebTemplates(lcid));
+                Assert.That(site.GetWebTemplates(lcid), Is.SameAs(templateCollection.SpType));
+            }
+        }
+
+        [Test]
+        public void CanReturnSpWebTemplateCollectionFromTwoDifferentLcid()
+        {
+            //Arrange
+            var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
+            var substituteSpSite = new SubstituteSpSite(guild);
+
+            var templateCollectionOne = new SubstituteSpWebTemplateCollection();
+            uint lcidOne = 1033;
+
+            var templateCollectionTwo = new SubstituteSpWebTemplateCollection();
+            uint lcidTwo = 1034;
+
+            //Act
+            substituteSpSite.WebTemplates(lcidOne).Returns(templateCollectionOne);
+            substituteSpSite.WebTemplates(lcidTwo).Returns(templateCollectionTwo);
+
+            //Assert
+            using (var site = new SPSite(guild))
+            {
+                Assert.That(templateCollectionOne.SpType, Is.SameAs(site.GetWebTemplates(lcidOne)));
+                Assert.That(templateCollectionTwo.SpType, Is.SameAs(site.GetWebTemplates(lcidTwo)));
             }
         }
     }

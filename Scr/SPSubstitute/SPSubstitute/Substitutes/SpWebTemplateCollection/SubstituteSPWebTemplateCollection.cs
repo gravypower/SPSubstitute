@@ -3,22 +3,24 @@ using Microsoft.SharePoint.Fakes;
 
 namespace SPSubstitute.Substitutes.SpWebTemplateCollection
 {
+    using SPSubstitute.Substitutes.SpSite;
+
     public class SubstituteSpWebTemplateCollection : SpSubstitute<ShimSPWebTemplateCollection, SPWebTemplateCollection>, IMap
     {
-        public void MapValue(SpSubstitute value)
+        public SubstituteSpWebTemplateCollection(SPWebTemplateCollection webTemplateCollection)
         {
-            throw new System.NotImplementedException();
+            Shim = new ShimSPWebTemplateCollection(webTemplateCollection);
         }
 
-        public void MapValue(object value)
+        public SubstituteSpWebTemplateCollection()
         {
-            throw new System.NotImplementedException();
+            Shim = new ShimSPWebTemplateCollection();
         }
 
-        public void DoMap(object value)
+        public void MapObjectValue(object value)
         {
-            throw new System.NotImplementedException();
-            //this.substituteSpSite.Shim.GetWebTemplatesUInt32 = u => (SPWebTemplateCollection)value;
+            var site = new SubstituteSpSite(Arg.Any());
+            site.WebTemplates(Arg.Any()).Returns(value);
         }
     }
 }

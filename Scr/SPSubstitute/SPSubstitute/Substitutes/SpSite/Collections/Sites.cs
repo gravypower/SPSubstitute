@@ -1,8 +1,9 @@
-﻿namespace SPSubstitute.Substitutes.SpSite
+﻿namespace SPSubstitute.Substitutes.SPSite.Collections
 {
-    using SPSubstitute.Substitutes.SPSite;
     using System;
     using System.Collections.Generic;
+
+    using SPSubstitute.Substitutes.SpSite;
 
     public class Sites
     {
@@ -11,7 +12,6 @@
             this.guildSites = new Dictionary<Guid, SubstituteSpSite>();
             this.requestUrlSites = new Dictionary<string, SubstituteSpSite>();
         }
-
         private readonly Dictionary<Guid, SubstituteSpSite> guildSites;
         public SubstituteSpSite this[Guid guid]
         {
@@ -30,6 +30,16 @@
                 return this.requestUrlSites[requestUrl];
             }
             set { this.requestUrlSites[requestUrl] = value; }
+        }
+
+        private SubstituteSpSite site;
+        public SubstituteSpSite this[Arg requestUrl]
+        {
+            get
+            {
+                return site;
+            }
+            set { site = value; }
         }
     }
 }

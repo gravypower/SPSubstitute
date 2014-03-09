@@ -2,22 +2,16 @@
 {
     public interface IMap
     {
-        void MapValue(SpSubstitute value);
-
-        void MapValue(object value);
-
-        void DoMap(object value);
+        void MapObjectValue(object value);
     }
 
     public abstract class Map : IMap
     {
-        public void MapValue(SpSubstitute value)
+        public void MapSpSubstituteValue(SpSubstitute value)
         {
-            MapValue(value.GetValueForMapping());
+            MapObjectValue(value.GetValueForMapping());
         }
 
-        public abstract void MapValue(object value);
-
-        public abstract void DoMap(object value);
+        public abstract void MapObjectValue(object value);
     }
 }
