@@ -8,9 +8,7 @@ using SPSubstitute.Substitutes.SpSite.Tasks;
 namespace SPSubstitute.Substitutes.SpSite
 {
     using Microsoft.SharePoint;
-
-    using SPSubstitute.Substitutes.SPSite.Collections;
-    using SPSubstitute.Substitutes.SpSite.Collections;
+    using Collections;
 
     public class SubstituteSpSite : SpSubstitute<ShimSPSite, SPSite>
     {
@@ -39,13 +37,14 @@ namespace SPSubstitute.Substitutes.SpSite
         {
             Sites[args] = this;
             new ConstructorString(this, args).Run();
+            new ConstructorGuid(this, args).Run();
         }
 
         private SubstituteSpSite()
         {
             Sites = new Sites();
             WebTemplateCollections = new WebTemplateCollections();
-            this.PortalName = new PortalNameSubstitute(this);
+            PortalName = new PortalNameSubstitute(this);
         }
 
         public WebTemplatesSubstitute WebTemplates(uint lcid)
@@ -56,6 +55,11 @@ namespace SPSubstitute.Substitutes.SpSite
         public WebTemplatesSubstitute WebTemplates(Arg args)
         {
             return new WebTemplatesSubstitute(this, args);
+        }
+
+        public OpenWebSubstitute OpenWeb()
+        {
+            return new OpenWebSubstitute(this);
         }
     }
 }

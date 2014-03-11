@@ -1,26 +1,33 @@
-﻿using Microsoft.SharePoint.Fakes;
-
-namespace SPSubstitute.Substitutes.SpSite.Tasks
+﻿namespace SPSubstitute.Substitutes.SpSite.Tasks
 {
-    public class ConstructorGuid : Task<SubstituteSpSite>
+    using System;
+    using Microsoft.SharePoint.Fakes;
+
+    public class ConstructorGuid : ConstructorBase<Guid>
     {
-        public ConstructorGuid(SubstituteSpSite substitute) : base(substitute)
+        public ConstructorGuid(SubstituteSpSite substitute) 
+            : base(substitute)
+        {
+        }
+
+        public ConstructorGuid(SubstituteSpSite substitute, Arg args)
+            : base(substitute, args)
         {
         }
 
         public override void Run()
         {
-            ShimSPSite.ConstructorGuid = (site, guid) =>
+            ShimSPSite.ConstructorGuid = Run;
+        }
+
+        public override void ConstructorArgRun(ShimSPSite site, Guid constructorArg)
+        {
+            SpSubstitute.Sites[constructorArg].Shim = site;
+
+            foreach (var action in SpSubstitute.Sites[constructorArg].Actions)
             {
-                var shimSite = new ShimSPSite(site);
-
-                SpSubstitute.Sites[guid].Shim = shimSite;
-
-                foreach (var action in SpSubstitute.Sites[guid].Actions)
-                {
-                    action.Invoke(shimSite);
-                }
-            };
+                action.Invoke(site);
+            }
         }
     }
 }

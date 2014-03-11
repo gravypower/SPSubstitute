@@ -1,9 +1,9 @@
-﻿namespace SPSubstitute.Substitutes.SPSite.Collections
+﻿namespace SPSubstitute.Substitutes.SpSite.Collections
 {
     using System;
     using System.Collections.Generic;
 
-    using SPSubstitute.Substitutes.SpSite;
+    using SpSite;
 
     public class Sites
     {

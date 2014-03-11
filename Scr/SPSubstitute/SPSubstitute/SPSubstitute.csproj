@@ -52,6 +52,8 @@
     <Compile Include="Substitutes\SpFarm\Tasks\LocalGet.cs" />
     <Compile Include="Substitutes\SpPersistedObject\SubstituteSpPersistedObject.cs" />
     <Compile Include="Substitutes\SpSite\Collections\WebTemplateCollections.cs" />
+    <Compile Include="Substitutes\SpSite\Methods\OpenWebSubstitute.cs" />
+    <Compile Include="Substitutes\SpSite\Tasks\ConstructorBase.cs" />
     <Compile Include="Substitutes\SpSite\Tasks\ConstructorGuid.cs" />
     <Compile Include="Substitutes\SpSite\Tasks\ConstructorString.cs" />
     <Compile Include="Substitutes\SpSubstitute.cs" />
@@ -65,12 +67,15 @@
     <Compile Include="Substitutes\SpWebTemplateCollection\SubstituteSpWebTemplateCollection.cs" />
     <Compile Include="Substitutes\Map.cs" />
     <Compile Include="Substitutes\SpWebTemplate\SubstituteSpWebTemplate.cs" />
+    <Compile Include="Substitutes\SpWeb\SubstituteSpWeb.cs" />
     <Compile Include="Task.cs" />
   </ItemGroup>
   <ItemGroup>
     <Fakes Include="Fakes\Microsoft.SharePoint.fakes" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Substitutes\SpWeb\Methods\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

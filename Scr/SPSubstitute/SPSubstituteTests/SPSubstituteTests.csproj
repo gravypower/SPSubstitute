@@ -51,6 +51,7 @@
     <Compile Include="SubstituteSpSiteTests.cs" />
     <Compile Include="SubstituteSpWebApplicationTests.cs" />
     <Compile Include="SubstituteSpWebTemplateCollectionTests.cs" />
+    <Compile Include="SubstituteSpWebTests.cs" />
     <Compile Include="SubstituteTests.cs" />
   </ItemGroup>
   <ItemGroup>

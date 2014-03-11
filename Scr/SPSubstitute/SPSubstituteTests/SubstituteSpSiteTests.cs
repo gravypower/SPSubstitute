@@ -1,5 +1,6 @@
 ﻿using SPSubstitute;
 using SPSubstitute.Substitutes.SpSite;
+using SPSubstitute.Substitutes.SpWeb;
 using SPSubstitute.Substitutes.SpWebTemplateCollection;
 
 namespace SPSubstituteTests
@@ -128,8 +129,44 @@ namespace SPSubstituteTests
             //Assert
             using (var site = new SPSite(guild))
             {
-                Assert.That(templateCollectionOne.SpType, Is.SameAs(site.GetWebTemplates(lcidOne)));
-                Assert.That(templateCollectionTwo.SpType, Is.SameAs(site.GetWebTemplates(lcidTwo)));
+                Assert.That(site.GetWebTemplates(lcidOne), Is.SameAs(templateCollectionOne.SpType));
+                Assert.That(site.GetWebTemplates(lcidTwo), Is.SameAs(templateCollectionTwo.SpType));
+            }
+        }
+
+        [Test]
+        public void CanOpenWebWithNoArgumentFromSiteFromGuid()
+        {
+            //Arrange
+            var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
+            var substituteSpSite = new SubstituteSpSite(guild);
+
+            var web = new SubstituteSpWeb();
+
+            //Act
+            substituteSpSite.OpenWeb().Returns(web);
+             //Assert
+            using (var site = new SPSite(guild))
+            {
+                Assert.That(site.OpenWeb(), Is.SameAs(web.SpType));
+            }
+        }
+
+        [Test]
+        public void CanOpenWebWithNoArgumentFromSiteFromString()
+        {
+            //Arrange
+            var requestUrl = "http://SomeURL";
+            var substituteSpSite = new SubstituteSpSite(requestUrl);
+
+            var web = new SubstituteSpWeb();
+
+            //Act
+            substituteSpSite.OpenWeb().Returns(web);
+            //Assert
+            using (var site = new SPSite(requestUrl))
+            {
+                Assert.That(site.OpenWeb(), Is.SameAs(web.SpType));
             }
         }
     }

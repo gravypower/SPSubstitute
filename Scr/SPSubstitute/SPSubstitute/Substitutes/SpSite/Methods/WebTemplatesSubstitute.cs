@@ -6,8 +6,8 @@
     using Microsoft.SharePoint.Fakes;
     using System.Linq;
 
-    using SPSubstitute.Substitutes.SpWebTemplate;
-    using SPSubstitute.Substitutes.SpWebTemplateCollection;
+    using SpWebTemplate;
+    using SpWebTemplateCollection;
 
     public class WebTemplatesSubstitute : Map
     {
@@ -33,18 +33,18 @@
         {
             if (args == null)
             {
-                this.substituteSpSite.WebTemplateCollections[lcid] = new SubstituteSpWebTemplateCollection((SPWebTemplateCollection)value);
-                this.substituteSpSite.Actions.Add(site => DoMap());
+                substituteSpSite.WebTemplateCollections[lcid] = new SubstituteSpWebTemplateCollection((SPWebTemplateCollection)value);
+                substituteSpSite.Actions.Add(site => DoMap());
             }
             else
             {
-                this.substituteSpSite.Shim = new ShimSPSite();
+                substituteSpSite.Shim = new ShimSPSite();
 
-                this.substituteSpSite.Actions.Add(
+                substituteSpSite.Actions.Add(
                     site =>
                         {
 
-                            this.substituteSpSite.Shim.GetWebTemplatesUInt32 = lcid =>
+                            substituteSpSite.Shim.GetWebTemplatesUInt32 = lcid =>
                                 {
                                     var shim = new ShimSPWebTemplateCollection();
 
@@ -59,7 +59,7 @@
 
         public void DoMap()
         {
-            this.substituteSpSite.Shim.GetWebTemplatesUInt32 = lcid => this.substituteSpSite.WebTemplateCollections[lcid].SpType;
+            this.substituteSpSite.Shim.GetWebTemplatesUInt32 = lcid => substituteSpSite.WebTemplateCollections[lcid].SpType;
         }
     }
 }

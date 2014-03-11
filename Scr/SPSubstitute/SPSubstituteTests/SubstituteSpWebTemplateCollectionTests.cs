@@ -1,6 +1,4 @@
-﻿using SPSubstitute;
-
-namespace SPSubstituteTests
+﻿namespace SPSubstituteTests
 {
     using System;
     using System.Collections.Generic;
@@ -9,6 +7,7 @@ namespace SPSubstituteTests
 
     using NUnit.Framework;
 
+    using SPSubstitute;
     using SPSubstitute.Substitutes.SpWebTemplate;
     using SPSubstitute.Substitutes.SpWebTemplateCollection;
 
@@ -21,12 +20,10 @@ namespace SPSubstituteTests
             //Arrange
             var templateCollection = new SubstituteSpWebTemplateCollection();
 
-
             var WebTemplates = new List<SubstituteSpWebTemplate>();
 
             //Act
             templateCollection.Returns(WebTemplates);
-
 
             //Assert
             using (var site = new SPSite("http://SomeURL"))
@@ -41,12 +38,10 @@ namespace SPSubstituteTests
             //Arrange
             var templateCollection = new SubstituteSpWebTemplateCollection();
 
-
             var WebTemplates = new List<SubstituteSpWebTemplate>();
 
             //Act
             templateCollection.Returns(WebTemplates);
-
 
             //Assert
             using (var site = new SPSite(new Guid()))
@@ -70,7 +65,6 @@ namespace SPSubstituteTests
 
             //Act
             templateCollection.Returns(template);
-
 
             //Assert
             using (var site = new SPSite("http://SomeURL"))
