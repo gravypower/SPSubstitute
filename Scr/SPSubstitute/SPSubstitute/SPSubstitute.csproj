@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Arg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Substitutes\SpSecurity\Play.cs" />
     <Compile Include="Substitutes\SpFarm\Methods\GetObjectSubstitute.cs" />
     <Compile Include="Substitutes\SpFarm\Collections\Objects.cs" />
     <Compile Include="Substitutes\SpFarm\SubstituteSpFarm.cs" />
@@ -67,6 +68,8 @@
     <Compile Include="Substitutes\SpWebTemplateCollection\SubstituteSpWebTemplateCollection.cs" />
     <Compile Include="Substitutes\Map.cs" />
     <Compile Include="Substitutes\SpWebTemplate\SubstituteSpWebTemplate.cs" />
+    <Compile Include="Substitutes\SpWeb\Collections\WebsCollections.cs" />
+    <Compile Include="Substitutes\SpWeb\Properties\WebsSubstitute.cs" />
     <Compile Include="Substitutes\SpWeb\SubstituteSpWeb.cs" />
     <Compile Include="Task.cs" />
   </ItemGroup>

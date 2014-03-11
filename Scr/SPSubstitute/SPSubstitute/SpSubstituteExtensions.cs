@@ -15,6 +15,5 @@ namespace SPSubstitute
         {
             value.MapObjectValue(returnThis);
         }
-
     }
 }

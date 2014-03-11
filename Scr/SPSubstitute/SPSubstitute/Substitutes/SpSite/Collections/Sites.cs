@@ -12,6 +12,7 @@
             this.guildSites = new Dictionary<Guid, SubstituteSpSite>();
             this.requestUrlSites = new Dictionary<string, SubstituteSpSite>();
         }
+
         private readonly Dictionary<Guid, SubstituteSpSite> guildSites;
         public SubstituteSpSite this[Guid guid]
         {

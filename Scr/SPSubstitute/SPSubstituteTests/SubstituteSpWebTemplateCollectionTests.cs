@@ -69,7 +69,7 @@
             //Assert
             using (var site = new SPSite("http://SomeURL"))
             {
-                Assert.That(site.GetWebTemplates(1033), Contains.Item(webTemplate.Shim));
+                Assert.That(site.GetWebTemplates(1033), Contains.Item(webTemplate.SpType));
             }
         }
     }

@@ -1,9 +1,9 @@
-﻿using Microsoft.SharePoint;
-using Microsoft.SharePoint.Fakes;
-
-namespace SPSubstitute.Substitutes.SpWebTemplateCollection
+﻿namespace SPSubstitute.Substitutes.SpWebTemplateCollection
 {
-    using SPSubstitute.Substitutes.SpSite;
+    using Microsoft.SharePoint;
+    using Microsoft.SharePoint.Fakes;
+
+    using SpSite;
 
     public class SubstituteSpWebTemplateCollection : SpSubstitute<ShimSPWebTemplateCollection, SPWebTemplateCollection>, IMap
     {

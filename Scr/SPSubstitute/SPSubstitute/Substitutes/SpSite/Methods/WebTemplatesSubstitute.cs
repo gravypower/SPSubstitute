@@ -43,12 +43,11 @@
                 substituteSpSite.Actions.Add(
                     site =>
                         {
-
                             substituteSpSite.Shim.GetWebTemplatesUInt32 = lcid =>
                                 {
                                     var shim = new ShimSPWebTemplateCollection();
 
-                                    var webTemplates = ((List<SubstituteSpWebTemplate>)value).Select(x => x.Shim);
+                                    var webTemplates = ((List<SubstituteSpWebTemplate>)value).Select(x => x.SpType);
                                     shim.Bind(webTemplates);
 
                                     return shim;
