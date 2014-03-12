@@ -8,17 +8,17 @@ namespace SPSubstitute.Substitutes.SPSite.Collections
     {
         public WebTemplateCollections()
         {
-            this.webTemplateCollections = new Dictionary<uint, SPWebTemplateCollectionSubstitute>();
+            _webTemplateCollections = new Dictionary<uint, SPWebTemplateCollectionSubstitute>();
         }
 
-        private readonly Dictionary<uint, SPWebTemplateCollectionSubstitute> webTemplateCollections;
+        private readonly Dictionary<uint, SPWebTemplateCollectionSubstitute> _webTemplateCollections;
         public SPWebTemplateCollectionSubstitute this[uint guid]
         {
             get
             {
-                return this.webTemplateCollections[guid];
+                return _webTemplateCollections[guid];
             }
-            set { this.webTemplateCollections[guid] = value; }
+            set { _webTemplateCollections[guid] = value; }
         }
     }
 }

@@ -10,23 +10,23 @@ namespace SPSubstitute.Substitutes.SPFarm.Methods
     {
         private readonly SPFarmSubstitute _farmSubstitute;
 
-        private readonly Guid objectId;
+        private readonly Guid _objectId;
 
-        public GetObjectSubstitute(SPFarmSubstitute _farmSubstitute, Guid objectId)
+        public GetObjectSubstitute(SPFarmSubstitute farmSubstitute, Guid objectId)
         {
-            this.objectId = objectId;
-            this._farmSubstitute = _farmSubstitute;
+            _objectId = objectId;
+            _farmSubstitute = farmSubstitute;
         }
 
         public override void MapObjectValue(object value)
         {
-            this._farmSubstitute.Objects[objectId] = new SPPersistedObjectSubstitute((SPPersistedObject)value);
+            _farmSubstitute.Objects[_objectId] = new SPPersistedObjectSubstitute((SPPersistedObject)value);
             _farmSubstitute.Actions.Add(site => DoMap());
         }
 
         public void DoMap()
         {
-            this._farmSubstitute.Shim.GetObjectGuid = guid => this._farmSubstitute.Objects[guid].SpType;
+            _farmSubstitute.Shim.GetObjectGuid = guid => _farmSubstitute.Objects[guid].SpType;
         }
     }
 }

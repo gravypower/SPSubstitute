@@ -20,10 +20,10 @@
             //Arrange
             var templateCollection = new SPWebTemplateCollectionSubstitute();
 
-            var WebTemplates = new List<SPWebTemplateSubstitute>();
+            var webTemplates = new List<SPWebTemplateSubstitute>();
 
             //Act
-            templateCollection.Returns(WebTemplates);
+            templateCollection.Returns(webTemplates);
 
             //Assert
             using (var site = new SPSite("http://SomeURL"))
