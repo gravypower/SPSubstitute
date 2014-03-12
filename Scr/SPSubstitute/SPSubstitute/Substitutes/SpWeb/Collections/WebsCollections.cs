@@ -5,8 +5,8 @@ namespace SPSubstitute.Substitutes.SPWeb.Collections
 {
     public class WebsCollections
     {
-        private readonly Dictionary<string, WebSubstitute> stringSpWeb;
-        public WebSubstitute this[string name]
+        private readonly Dictionary<string, SPWebSubstitute> stringSpWeb;
+        public SPWebSubstitute this[string name]
         {
             get
             {
@@ -15,14 +15,14 @@ namespace SPSubstitute.Substitutes.SPWeb.Collections
             set { stringSpWeb[name] = value; }
         }
 
-        public IList<WebSubstitute> SpWebs
+        public IList<SPWebSubstitute> SpWebs
         {
             get { return stringSpWeb.Values.ToList(); }
         }
 
         public WebsCollections()
         {
-            stringSpWeb = new Dictionary<string, WebSubstitute>();
+            stringSpWeb = new Dictionary<string, SPWebSubstitute>();
         }
     }
 }

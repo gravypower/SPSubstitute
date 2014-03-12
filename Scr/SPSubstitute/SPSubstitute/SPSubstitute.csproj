@@ -49,7 +49,6 @@
     <Compile Include="Substitutes\SPFarm\Methods\GetObjectSubstitute.cs" />
     <Compile Include="Substitutes\SPFarm\Collections\Objects.cs" />
     <Compile Include="Substitutes\SPFarm\SPFarmSubstitute.cs" />
-    <Compile Include="Substitutes\SPFarm\Tasks\GetObjectGuid.cs" />
     <Compile Include="Substitutes\SPFarm\Tasks\LocalGet.cs" />
     <Compile Include="Substitutes\SPPersistedObject\SPPersistedObjectSubstitute.cs" />
     <Compile Include="Substitutes\SPSite\Collections\WebTemplateCollections.cs" />
@@ -63,7 +62,6 @@
     <Compile Include="Substitutes\SPSite\Methods\WebTemplatesSubstitute.cs" />
     <Compile Include="Substitutes\SPSite\SPSiteSubstitute.cs" />
     <Compile Include="Substitutes\SPSite\Properties\PortalNameSubstitute.cs" />
-    <Compile Include="Substitutes\SPWebApplication\Properties\SitesSubstitute.cs" />
     <Compile Include="Substitutes\SPWebApplication\SPWebApplicationSubstitute.cs" />
     <Compile Include="Substitutes\SPWebTemplateCollection\SPWebTemplateCollectionSubstitute.cs" />
     <Compile Include="Substitutes\Map.cs" />
@@ -77,6 +75,7 @@
     <Fakes Include="Fakes\Microsoft.SharePoint.fakes" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Substitutes\SPWebApplication\Properties\" />
     <Folder Include="Substitutes\SPWeb\Methods\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

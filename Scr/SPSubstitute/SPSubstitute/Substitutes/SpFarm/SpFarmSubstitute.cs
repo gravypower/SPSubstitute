@@ -1,6 +1,4 @@
-﻿
-
-namespace SPSubstitute.Substitutes.SPFarm
+﻿namespace SPSubstitute.Substitutes.SPFarm
 {
     using System;
     using Microsoft.SharePoint.Administration;

@@ -5,19 +5,19 @@ namespace SPSubstitute.Substitutes.SPWeb.Properties
 {
     public class WebsSubstitute : Map
     {
-        private WebSubstitute _webSubstitute;
+        private SPWebSubstitute _spWebSubstitute;
 
-        public WebsSubstitute(WebSubstitute webSubstitute)
+        public WebsSubstitute(SPWebSubstitute spWebSubstitute)
         {
-            _webSubstitute = webSubstitute;
+            _spWebSubstitute = spWebSubstitute;
         }
 
-        public WebSubstitute Add(string webUrl, string title, string description, uint lcid, string webTemplate,
+        public SPWebSubstitute Add(string webUrl, string title, string description, uint lcid, string webTemplate,
             bool useUniquePermissions, bool bConvertIfThere)
         {
-            _webSubstitute.WebsCollections[webUrl] = new WebSubstitute(Arg.Any());
-            _webSubstitute.WebsCollections[webUrl].Shim = new ShimSPWeb();
-            return _webSubstitute.WebsCollections[webUrl];
+            _spWebSubstitute.WebsCollections[webUrl] = new SPWebSubstitute(Arg.Any());
+            _spWebSubstitute.WebsCollections[webUrl].Shim = new ShimSPWeb();
+            return _spWebSubstitute.WebsCollections[webUrl];
         }
 
         public override void MapObjectValue(object value)

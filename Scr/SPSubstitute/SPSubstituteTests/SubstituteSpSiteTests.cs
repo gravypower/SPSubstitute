@@ -18,7 +18,7 @@ namespace SPSubstituteTests
             //Arrange
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
 
-            var substituteSpSite = new SPSiteSubstitute(guild);
+            var spSiteSubstitute = new SPSiteSubstitute(guild);
 
             //Act
             SPSite spSite;
@@ -28,7 +28,7 @@ namespace SPSubstituteTests
             }
 
             //Assert
-            Assert.That(substituteSpSite.SpType, Is.SameAs(spSite));
+            Assert.That(spSiteSubstitute.SpType, Is.SameAs(spSite));
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace SPSubstituteTests
             //Arrange
             var requestUrl = "http://SomeURL";
 
-            var substituteSpSite = new SPSiteSubstitute(requestUrl);
+            var spSiteSubstitute = new SPSiteSubstitute(requestUrl);
 
             //Act
             SPSite spSite;
@@ -47,7 +47,7 @@ namespace SPSubstituteTests
             }
 
             //Assert
-            Assert.That(substituteSpSite.SpType, Is.SameAs(spSite));
+            Assert.That(spSiteSubstitute.SpType, Is.SameAs(spSite));
         }
 
 
@@ -58,10 +58,10 @@ namespace SPSubstituteTests
             var requestUrl = "http://SomeURL";
             var portalName = "SomeTitle";
 
-            var substituteSpSite = new SPSiteSubstitute(requestUrl);
+            var spSiteSubstitute = new SPSiteSubstitute(requestUrl);
             
             //Act
-            substituteSpSite.PortalName.Returns(portalName);
+            spSiteSubstitute.PortalName.Returns(portalName);
 
             //Assert
             using (var site = new SPSite(requestUrl))
@@ -77,10 +77,10 @@ namespace SPSubstituteTests
             //Arrange
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
             var portalName = "SomeTitle";
-            var substituteSpSite = new SPSiteSubstitute(guild);
+            var spSiteSubstitute = new SPSiteSubstitute(guild);
 
             //Act
-            substituteSpSite.PortalName.Returns(portalName);
+            spSiteSubstitute.PortalName.Returns(portalName);
 
             //Assert
             using (var site = new SPSite(guild))
@@ -94,13 +94,13 @@ namespace SPSubstituteTests
         {
             //Arrange
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
-            var substituteSpSite = new SPSiteSubstitute(guild);
+            var spSiteSubstitute = new SPSiteSubstitute(guild);
 
             var templateCollection = new SPWebTemplateCollectionSubstitute();
             uint lcid = 1033;
 
             //Act
-            substituteSpSite.WebTemplates(lcid).Returns(templateCollection);
+            spSiteSubstitute.WebTemplates(lcid).Returns(templateCollection);
 
             //Assert
             using (var site = new SPSite(guild))
@@ -114,7 +114,7 @@ namespace SPSubstituteTests
         {
             //Arrange
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
-            var substituteSpSite = new SPSiteSubstitute(guild);
+            var spSiteSubstitute = new SPSiteSubstitute(guild);
 
             var templateCollectionOne = new SPWebTemplateCollectionSubstitute();
             uint lcidOne = 1033;
@@ -123,8 +123,8 @@ namespace SPSubstituteTests
             uint lcidTwo = 1034;
 
             //Act
-            substituteSpSite.WebTemplates(lcidOne).Returns(templateCollectionOne);
-            substituteSpSite.WebTemplates(lcidTwo).Returns(templateCollectionTwo);
+            spSiteSubstitute.WebTemplates(lcidOne).Returns(templateCollectionOne);
+            spSiteSubstitute.WebTemplates(lcidTwo).Returns(templateCollectionTwo);
 
             //Assert
             using (var site = new SPSite(guild))
@@ -139,12 +139,12 @@ namespace SPSubstituteTests
         {
             //Arrange
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
-            var substituteSpSite = new SPSiteSubstitute(guild);
+            var spSiteSubstitute = new SPSiteSubstitute(guild);
 
-            var web = new WebSubstitute();
+            var web = new SPWebSubstitute();
 
             //Act
-            substituteSpSite.OpenWeb().Returns(web);
+            spSiteSubstitute.OpenWeb().Returns(web);
              //Assert
             using (var site = new SPSite(guild))
             {
@@ -157,12 +157,12 @@ namespace SPSubstituteTests
         {
             //Arrange
             var requestUrl = "http://SomeURL";
-            var substituteSpSite = new SPSiteSubstitute(requestUrl);
+            var spSiteSubstitute = new SPSiteSubstitute(requestUrl);
 
-            var web = new WebSubstitute();
+            var web = new SPWebSubstitute();
 
             //Act
-            substituteSpSite.OpenWeb().Returns(web);
+            spSiteSubstitute.OpenWeb().Returns(web);
             //Assert
             using (var site = new SPSite(requestUrl))
             {

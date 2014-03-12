@@ -18,12 +18,12 @@
         public void SubstituteTemplateCollectionAlsoSubstitutesSiteWithString()
         {
             //Arrange
-            var templateCollection = new SPWebTemplateCollectionSubstitute();
+            var spWebTemplateCollectionSubstitute = new SPWebTemplateCollectionSubstitute();
 
             var webTemplates = new List<SPWebTemplateSubstitute>();
 
             //Act
-            templateCollection.Returns(webTemplates);
+            spWebTemplateCollectionSubstitute.Returns(webTemplates);
 
             //Assert
             using (var site = new SPSite("http://SomeURL"))
@@ -36,12 +36,12 @@
         public void SubstituteTemplateCollectionAlsoSubstitutesSiteWithGuid()
         {
             //Arrange
-            var templateCollection = new SPWebTemplateCollectionSubstitute();
+            var spWebTemplateCollectionSubstitute = new SPWebTemplateCollectionSubstitute();
 
             var WebTemplates = new List<SPWebTemplateSubstitute>();
 
             //Act
-            templateCollection.Returns(WebTemplates);
+            spWebTemplateCollectionSubstitute.Returns(WebTemplates);
 
             //Assert
             using (var site = new SPSite(new Guid()))
@@ -54,7 +54,7 @@
         public void CanGetWebTemplateFromSubstituteTemplateCollection()
         {
             //Arrange
-            var templateCollection = new SPWebTemplateCollectionSubstitute();
+            var spWebTemplateCollectionSubstitute = new SPWebTemplateCollectionSubstitute();
 
             var webTemplate = new SPWebTemplateSubstitute();
 
@@ -64,7 +64,7 @@
                                };
 
             //Act
-            templateCollection.Returns(template);
+            spWebTemplateCollectionSubstitute.Returns(template);
 
             //Assert
             using (var site = new SPSite("http://SomeURL"))
