@@ -8,25 +8,25 @@
 
     public class GetObjectSubstitute : Map
     {
-        private readonly SubstituteSpFarm substituteSpFarm;
+        private readonly SpFarmSubstitute _spFarmSubstitute;
 
         private readonly Guid objectId;
 
-        public GetObjectSubstitute(SubstituteSpFarm substituteSpFarm, Guid objectId)
+        public GetObjectSubstitute(SpFarmSubstitute _spFarmSubstitute, Guid objectId)
         {
             this.objectId = objectId;
-            this.substituteSpFarm = substituteSpFarm;
+            this._spFarmSubstitute = _spFarmSubstitute;
         }
 
         public override void MapObjectValue(object value)
         {
-            this.substituteSpFarm.Objects[objectId] = new SubstituteSpPersistedObject((SPPersistedObject)value);
-            substituteSpFarm.Actions.Add(site => DoMap());
+            this._spFarmSubstitute.Objects[objectId] = new SpPersistedObjectSubstitute((SPPersistedObject)value);
+            _spFarmSubstitute.Actions.Add(site => DoMap());
         }
 
         public void DoMap()
         {
-            this.substituteSpFarm.Shim.GetObjectGuid = guid => this.substituteSpFarm.Objects[guid].SpType;
+            this._spFarmSubstitute.Shim.GetObjectGuid = guid => this._spFarmSubstitute.Objects[guid].SpType;
         }
     }
 }

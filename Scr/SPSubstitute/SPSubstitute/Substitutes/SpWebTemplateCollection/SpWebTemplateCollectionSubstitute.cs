@@ -5,21 +5,21 @@
 
     using SpSite;
 
-    public class SubstituteSpWebTemplateCollection : SpSubstitute<ShimSPWebTemplateCollection, SPWebTemplateCollection>, IMap
+    public class SpWebTemplateCollectionSubstitute : SpSubstitute<ShimSPWebTemplateCollection, SPWebTemplateCollection>, IMap
     {
-        public SubstituteSpWebTemplateCollection(SPWebTemplateCollection webTemplateCollection)
+        public SpWebTemplateCollectionSubstitute(SPWebTemplateCollection webTemplateCollection)
         {
             Shim = new ShimSPWebTemplateCollection(webTemplateCollection);
         }
 
-        public SubstituteSpWebTemplateCollection()
+        public SpWebTemplateCollectionSubstitute()
         {
             Shim = new ShimSPWebTemplateCollection();
         }
 
         public void MapObjectValue(object value)
         {
-            var site = new SubstituteSpSite(Arg.Any());
+            var site = new SpSiteSubstitute(Arg.Any());
             site.WebTemplates(Arg.Any()).Returns(value);
         }
     }

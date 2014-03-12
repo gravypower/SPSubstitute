@@ -2,9 +2,9 @@
 
 namespace SPSubstitute.Substitutes.SpFarm.Tasks
 {
-    public class LocalGet : Task<SubstituteSpFarm>
+    public class LocalGet : Task<SpFarmSubstitute>
     {
-        public LocalGet(SubstituteSpFarm substitute) : base(substitute)
+        public LocalGet(SpFarmSubstitute spFarmSpSiteSubstitute) : base(spFarmSpSiteSubstitute)
         {
         }
 
@@ -12,8 +12,8 @@ namespace SPSubstitute.Substitutes.SpFarm.Tasks
         {
             ShimSPFarm.LocalGet = () =>
                 {
-                    this.SpSubstitute.Invoke();
-                    return this.SpSubstitute.SpType;
+                    this.SpSpFarmSpSiteSubstitute.Invoke();
+                    return this.SpSpFarmSpSiteSubstitute.SpType;
                 };
         }
     }

@@ -3,13 +3,13 @@ using Microsoft.SharePoint;
 
 namespace SPSubstitute.Substitutes.SpSite.Tasks
 {
-    public abstract class ConstructorBase<TConstructorArg> : Task<SubstituteSpSite>
+    public abstract class ConstructorBase<TConstructorArg> : Task<SpSiteSubstitute>
     {
-        protected ConstructorBase(SubstituteSpSite substitute, Arg args) : base(substitute, args)
+        protected ConstructorBase(SpSiteSubstitute spFarmSpSiteSubstitute, Arg args) : base(spFarmSpSiteSubstitute, args)
         {
         }
 
-        protected ConstructorBase(SubstituteSpSite substitute) : base(substitute)
+        protected ConstructorBase(SpSiteSubstitute spFarmSpSiteSubstitute) : base(spFarmSpSiteSubstitute)
         {
         }
 
@@ -19,8 +19,8 @@ namespace SPSubstitute.Substitutes.SpSite.Tasks
 
             if (Args != null)
             {
-                SpSubstitute.Sites[Args].Shim = shimSite;
-                foreach (var action in SpSubstitute.Sites[Args].Actions)
+                SpSpFarmSpSiteSubstitute.Sites[Args].Shim = shimSite;
+                foreach (var action in SpSpFarmSpSiteSubstitute.Sites[Args].Actions)
                 {
                     action.Invoke(shimSite);
                 }

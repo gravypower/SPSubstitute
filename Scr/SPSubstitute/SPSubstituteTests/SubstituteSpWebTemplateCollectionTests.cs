@@ -18,9 +18,9 @@
         public void SubstituteTemplateCollectionAlsoSubstitutesSiteWithString()
         {
             //Arrange
-            var templateCollection = new SubstituteSpWebTemplateCollection();
+            var templateCollection = new SpWebTemplateCollectionSubstitute();
 
-            var WebTemplates = new List<SubstituteSpWebTemplate>();
+            var WebTemplates = new List<SpWebTemplateSubstitute>();
 
             //Act
             templateCollection.Returns(WebTemplates);
@@ -36,9 +36,9 @@
         public void SubstituteTemplateCollectionAlsoSubstitutesSiteWithGuid()
         {
             //Arrange
-            var templateCollection = new SubstituteSpWebTemplateCollection();
+            var templateCollection = new SpWebTemplateCollectionSubstitute();
 
-            var WebTemplates = new List<SubstituteSpWebTemplate>();
+            var WebTemplates = new List<SpWebTemplateSubstitute>();
 
             //Act
             templateCollection.Returns(WebTemplates);
@@ -54,11 +54,11 @@
         public void CanGetWebTemplateFromSubstituteTemplateCollection()
         {
             //Arrange
-            var templateCollection = new SubstituteSpWebTemplateCollection();
+            var templateCollection = new SpWebTemplateCollectionSubstitute();
 
-            var webTemplate = new SubstituteSpWebTemplate();
+            var webTemplate = new SpWebTemplateSubstitute();
 
-            var template = new List<SubstituteSpWebTemplate>
+            var template = new List<SpWebTemplateSubstitute>
                                {
                                    webTemplate
                                };

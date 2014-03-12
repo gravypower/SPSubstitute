@@ -9,12 +9,12 @@
     {
         public Sites ()
         {
-            this.guildSites = new Dictionary<Guid, SubstituteSpSite>();
-            this.requestUrlSites = new Dictionary<string, SubstituteSpSite>();
+            this.guildSites = new Dictionary<Guid, SpSiteSubstitute>();
+            this.requestUrlSites = new Dictionary<string, SpSiteSubstitute>();
         }
 
-        private readonly Dictionary<Guid, SubstituteSpSite> guildSites;
-        public SubstituteSpSite this[Guid guid]
+        private readonly Dictionary<Guid, SpSiteSubstitute> guildSites;
+        public SpSiteSubstitute this[Guid guid]
         {
             get
             {
@@ -23,8 +23,8 @@
             set { this.guildSites[guid] = value; }
         }
 
-        private readonly Dictionary<string, SubstituteSpSite> requestUrlSites;
-        public SubstituteSpSite this[string requestUrl]
+        private readonly Dictionary<string, SpSiteSubstitute> requestUrlSites;
+        public SpSiteSubstitute this[string requestUrl]
         {
             get
             {
@@ -33,8 +33,8 @@
             set { this.requestUrlSites[requestUrl] = value; }
         }
 
-        private SubstituteSpSite site;
-        public SubstituteSpSite this[Arg requestUrl]
+        private SpSiteSubstitute site;
+        public SpSiteSubstitute this[Arg requestUrl]
         {
             get
             {

@@ -5,13 +5,13 @@
 
     public class ConstructorGuid : ConstructorBase<Guid>
     {
-        public ConstructorGuid(SubstituteSpSite substitute) 
-            : base(substitute)
+        public ConstructorGuid(SpSiteSubstitute spFarmSpSiteSubstitute) 
+            : base(spFarmSpSiteSubstitute)
         {
         }
 
-        public ConstructorGuid(SubstituteSpSite substitute, Arg args)
-            : base(substitute, args)
+        public ConstructorGuid(SpSiteSubstitute spFarmSpSiteSubstitute, Arg args)
+            : base(spFarmSpSiteSubstitute, args)
         {
         }
 
@@ -22,9 +22,9 @@
 
         public override void ConstructorArgRun(ShimSPSite site, Guid constructorArg)
         {
-            SpSubstitute.Sites[constructorArg].Shim = site;
+            SpSpFarmSpSiteSubstitute.Sites[constructorArg].Shim = site;
 
-            foreach (var action in SpSubstitute.Sites[constructorArg].Actions)
+            foreach (var action in SpSpFarmSpSiteSubstitute.Sites[constructorArg].Actions)
             {
                 action.Invoke(site);
             }

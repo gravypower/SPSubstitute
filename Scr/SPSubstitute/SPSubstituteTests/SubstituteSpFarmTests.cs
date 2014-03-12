@@ -15,7 +15,7 @@ namespace SPSubstituteTests
         public void CanSubstituteSpFarmLocal()
         {
             //Act
-            var substituteSpFarm = new SubstituteSpFarm();
+            var substituteSpFarm = new SpFarmSubstitute();
 
             //Assert
             Assert.That(SPFarm.Local, Is.Not.Null);
@@ -26,9 +26,9 @@ namespace SPSubstituteTests
         public void CanReturnWebApplicationFromGetObject()
         {
             //Assign
-            var substituteSpFarm = new SubstituteSpFarm();
+            var substituteSpFarm = new SpFarmSubstitute();
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
-            var webApplication = new SubstituteSpWebApplication();
+            var webApplication = new SpWebApplicationSubstitute();
 
             //Act
             substituteSpFarm.GetObject(guild).Returns(webApplication);
@@ -44,13 +44,13 @@ namespace SPSubstituteTests
         public void CanReturnTwoWebApplicationFromGetObject()
         {
             //Assign
-            var substituteSpFarm = new SubstituteSpFarm();
+            var substituteSpFarm = new SpFarmSubstitute();
             
             var guildOne = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
-            var webApplicationOne = new SubstituteSpWebApplication();
+            var webApplicationOne = new SpWebApplicationSubstitute();
 
             var guildTwo = new Guid("c1c353d1-ad6c-459c-bd78-419df29aa8a6");
-            var webApplicationTwo = new SubstituteSpWebApplication();
+            var webApplicationTwo = new SpWebApplicationSubstitute();
 
             //Act
             substituteSpFarm.GetObject(guildOne).Returns(webApplicationOne);

@@ -10,7 +10,7 @@ namespace SPSubstitute.Substitutes.SpSite
     using Microsoft.SharePoint;
     using Collections;
 
-    public class SubstituteSpSite : SpSubstitute<ShimSPSite, SPSite>
+    public class SpSiteSubstitute : SpSubstitute<ShimSPSite, SPSite>
     {
         public Sites Sites;
 
@@ -18,21 +18,21 @@ namespace SPSubstitute.Substitutes.SpSite
 
         public PortalNameSubstitute PortalName;
 
-        public SubstituteSpSite(Guid guid)
+        public SpSiteSubstitute(Guid guid)
             : this()
         {
             Sites[guid] = this;
             new ConstructorGuid(this).Run();
         }
 
-        public SubstituteSpSite(string requestUrl)
+        public SpSiteSubstitute(string requestUrl)
             : this()
         {
             Sites[requestUrl] = this;
             new ConstructorString(this).Run();
         }
 
-        public SubstituteSpSite(Arg args)
+        public SpSiteSubstitute(Arg args)
             : this()
         {
             Sites[args] = this;
@@ -40,7 +40,7 @@ namespace SPSubstitute.Substitutes.SpSite
             new ConstructorGuid(this, args).Run();
         }
 
-        private SubstituteSpSite()
+        private SpSiteSubstitute()
         {
             Sites = new Sites();
             WebTemplateCollections = new WebTemplateCollections();

@@ -5,21 +5,21 @@ namespace SPSubstitute.Substitutes.SpSite.Methods
 {
     public class OpenWebSubstitute : Map
     {
-        private readonly SubstituteSpSite _substituteSpSite;
+        private readonly SpSiteSubstitute _spSiteSubstitute;
 
-        public OpenWebSubstitute(SubstituteSpSite substituteSpSite)
+        public OpenWebSubstitute(SpSiteSubstitute spSiteSubstitute)
         {
-            _substituteSpSite = substituteSpSite;
+            _spSiteSubstitute = spSiteSubstitute;
         }
 
         public override void MapObjectValue(object value)
         {
-            _substituteSpSite.Shim = new ShimSPSite();
+            _spSiteSubstitute.Shim = new ShimSPSite();
 
-            _substituteSpSite.Actions.Add(
+            _spSiteSubstitute.Actions.Add(
                 site =>
                 {
-                    _substituteSpSite.Shim.OpenWeb = () => (SPWeb) value;
+                    _spSiteSubstitute.Shim.OpenWeb = () => (SPWeb) value;
                 });
         }
     }

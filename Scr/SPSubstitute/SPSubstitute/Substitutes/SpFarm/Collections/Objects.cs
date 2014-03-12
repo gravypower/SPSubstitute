@@ -9,11 +9,11 @@
     {
         public Objects()
         {
-            this.guildObjects = new Dictionary<Guid, SubstituteSpPersistedObject>();
+            this.guildObjects = new Dictionary<Guid, SpPersistedObjectSubstitute>();
         }
 
-        private readonly Dictionary<Guid, SubstituteSpPersistedObject> guildObjects;
-        public SubstituteSpPersistedObject this[Guid guid]
+        private readonly Dictionary<Guid, SpPersistedObjectSubstitute> guildObjects;
+        public SpPersistedObjectSubstitute this[Guid guid]
         {
             get
             {

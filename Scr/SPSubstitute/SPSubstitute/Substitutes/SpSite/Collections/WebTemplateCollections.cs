@@ -8,11 +8,11 @@
     {
         public WebTemplateCollections()
         {
-            this.webTemplateCollections = new Dictionary<uint, SubstituteSpWebTemplateCollection>();
+            this.webTemplateCollections = new Dictionary<uint, SpWebTemplateCollectionSubstitute>();
         }
 
-        private readonly Dictionary<uint, SubstituteSpWebTemplateCollection> webTemplateCollections;
-        public SubstituteSpWebTemplateCollection this[uint guid]
+        private readonly Dictionary<uint, SpWebTemplateCollectionSubstitute> webTemplateCollections;
+        public SpWebTemplateCollectionSubstitute this[uint guid]
         {
             get
             {

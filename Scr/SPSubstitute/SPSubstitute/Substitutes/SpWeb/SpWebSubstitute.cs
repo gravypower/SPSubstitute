@@ -7,14 +7,14 @@ using SPSubstitute.Substitutes.SpWeb.Properties;
 
 namespace SPSubstitute.Substitutes.SpWeb
 {
-    public class SubstituteSpWeb : SpSubstitute<ShimSPWeb, SPWeb>
+    public class SpWebSubstitute : SpSubstitute<ShimSPWeb, SPWeb>
     {
         public WebsCollections WebsCollections;
 
-        public SubstituteSpWeb()
+        public SpWebSubstitute()
             : this(Arg.Any())
         {
-            var site = new SubstituteSpSite(Arg.Any());
+            var site = new SpSiteSubstitute(Arg.Any());
             site.OpenWeb().Returns(this);
 
             Shim.WebsGet = () =>
@@ -22,13 +22,16 @@ namespace SPSubstitute.Substitutes.SpWeb
                 var shim = new ShimSPWebCollection();
 
                 var webs = WebsCollections.SpWebs.Select(x => x.SpType);
+
+                shim.ItemGetInt32 = i => WebsCollections.SpWebs[i].SpType;
+
                 shim.Bind(webs);
 
                 return shim;
             };
         }
 
-        public SubstituteSpWeb(Arg args)
+        public SpWebSubstitute(Arg args)
         {
             WebsCollections = new WebsCollections();
             Webs = new WebsSubstitute(this);

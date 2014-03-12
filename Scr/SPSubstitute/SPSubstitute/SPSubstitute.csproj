@@ -48,10 +48,10 @@
     <Compile Include="Substitutes\SpSecurity\Play.cs" />
     <Compile Include="Substitutes\SpFarm\Methods\GetObjectSubstitute.cs" />
     <Compile Include="Substitutes\SpFarm\Collections\Objects.cs" />
-    <Compile Include="Substitutes\SpFarm\SubstituteSpFarm.cs" />
+    <Compile Include="Substitutes\SpFarm\SpFarmSubstitute.cs" />
     <Compile Include="Substitutes\SpFarm\Tasks\GetObjectGuid.cs" />
     <Compile Include="Substitutes\SpFarm\Tasks\LocalGet.cs" />
-    <Compile Include="Substitutes\SpPersistedObject\SubstituteSpPersistedObject.cs" />
+    <Compile Include="Substitutes\SpPersistedObject\SpPersistedObjectSubstitute.cs" />
     <Compile Include="Substitutes\SpSite\Collections\WebTemplateCollections.cs" />
     <Compile Include="Substitutes\SpSite\Methods\OpenWebSubstitute.cs" />
     <Compile Include="Substitutes\SpSite\Tasks\ConstructorBase.cs" />
@@ -61,16 +61,16 @@
     <Compile Include="SpSubstituteExtensions.cs" />
     <Compile Include="Substitutes\SpSite\Collections\Sites.cs" />
     <Compile Include="Substitutes\SpSite\Methods\WebTemplatesSubstitute.cs" />
-    <Compile Include="Substitutes\SpSite\SubstituteSpSite.cs" />
+    <Compile Include="Substitutes\SpSite\SpSiteSubstitute.cs" />
     <Compile Include="Substitutes\SpSite\Properties\PortalNameSubstitute.cs" />
     <Compile Include="Substitutes\SpWebApplication\Properties\SitesSubstitute.cs" />
-    <Compile Include="Substitutes\SpWebApplication\SubstituteSpWebApplication.cs" />
-    <Compile Include="Substitutes\SpWebTemplateCollection\SubstituteSpWebTemplateCollection.cs" />
+    <Compile Include="Substitutes\SpWebApplication\SpWebApplicationSubstitute.cs" />
+    <Compile Include="Substitutes\SpWebTemplateCollection\SpWebTemplateCollectionSubstitute.cs" />
     <Compile Include="Substitutes\Map.cs" />
-    <Compile Include="Substitutes\SpWebTemplate\SubstituteSpWebTemplate.cs" />
+    <Compile Include="Substitutes\SpWebTemplate\SpWebTemplateSubstitute.cs" />
     <Compile Include="Substitutes\SpWeb\Collections\WebsCollections.cs" />
     <Compile Include="Substitutes\SpWeb\Properties\WebsSubstitute.cs" />
-    <Compile Include="Substitutes\SpWeb\SubstituteSpWeb.cs" />
+    <Compile Include="Substitutes\SpWeb\SpWebSubstitute.cs" />
     <Compile Include="Task.cs" />
   </ItemGroup>
   <ItemGroup>

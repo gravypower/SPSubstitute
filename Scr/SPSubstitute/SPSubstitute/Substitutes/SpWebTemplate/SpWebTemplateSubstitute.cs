@@ -3,9 +3,9 @@ using Microsoft.SharePoint.Fakes;
 
 namespace SPSubstitute.Substitutes.SpWebTemplate
 {
-    public class SubstituteSpWebTemplate:SpSubstitute<ShimSPWebTemplate, SPWebTemplate>
+    public class SpWebTemplateSubstitute:SpSubstitute<ShimSPWebTemplate, SPWebTemplate>
     {
-        public SubstituteSpWebTemplate()
+        public SpWebTemplateSubstitute()
         {
             this.Invoke();
         }

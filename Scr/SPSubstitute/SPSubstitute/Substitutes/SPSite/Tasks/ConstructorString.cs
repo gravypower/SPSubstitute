@@ -4,13 +4,13 @@
 
     public class ConstructorString : ConstructorBase<string>
     {
-        public ConstructorString(SubstituteSpSite substitute)
-            : base(substitute)
+        public ConstructorString(SpSiteSubstitute spFarmSpSiteSubstitute)
+            : base(spFarmSpSiteSubstitute)
         {
         }
 
-        public ConstructorString(SubstituteSpSite substitute, Arg args)
-            : base(substitute, args)
+        public ConstructorString(SpSiteSubstitute spFarmSpSiteSubstitute, Arg args)
+            : base(spFarmSpSiteSubstitute, args)
         {
         }
 
@@ -21,9 +21,9 @@
 
         public override void ConstructorArgRun(ShimSPSite site, string constructorArg)
         {
-            SpSubstitute.Sites[constructorArg].Shim = site;
+            SpSpFarmSpSiteSubstitute.Sites[constructorArg].Shim = site;
 
-            foreach (var action in SpSubstitute.Sites[constructorArg].Actions)
+            foreach (var action in SpSpFarmSpSiteSubstitute.Sites[constructorArg].Actions)
             {
                 action.Invoke(site);
             }

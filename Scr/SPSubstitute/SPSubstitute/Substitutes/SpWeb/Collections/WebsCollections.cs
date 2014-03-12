@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace SPSubstitute.Substitutes.SpWeb.Collections
 {
     public class WebsCollections
     {
-        private readonly Dictionary<string, SubstituteSpWeb> stringSpWeb;
-        public SubstituteSpWeb this[string name]
+        private readonly Dictionary<string, SpWebSubstitute> stringSpWeb;
+        public SpWebSubstitute this[string name]
         {
             get
             {
@@ -14,14 +15,14 @@ namespace SPSubstitute.Substitutes.SpWeb.Collections
             set { stringSpWeb[name] = value; }
         }
 
-        public IEnumerable<SubstituteSpWeb> SpWebs
+        public IList<SpWebSubstitute> SpWebs
         {
-            get { return stringSpWeb.Values; }
+            get { return stringSpWeb.Values.ToList(); }
         }
 
         public WebsCollections()
         {
-            stringSpWeb = new Dictionary<string, SubstituteSpWeb>();
+            stringSpWeb = new Dictionary<string, SpWebSubstitute>();
         }
     }
 }

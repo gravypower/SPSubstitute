@@ -5,19 +5,19 @@ namespace SPSubstitute
     public abstract class Task<TSpSubstitute>
         where TSpSubstitute : SpSubstitute
     {
-        protected TSpSubstitute SpSubstitute;
+        protected TSpSubstitute SpSpFarmSpSiteSubstitute;
 
         protected Arg Args;
 
-        protected Task(TSpSubstitute substitute, Arg args)
+        protected Task(TSpSubstitute spFarmSpSiteSubstitute, Arg args)
         {
-            SpSubstitute = substitute;
+            SpSpFarmSpSiteSubstitute = spFarmSpSiteSubstitute;
             Args = args;
         }
 
-        protected Task(TSpSubstitute substitute)
+        protected Task(TSpSubstitute spFarmSpSiteSubstitute)
         {
-            SpSubstitute = substitute;
+            SpSpFarmSpSiteSubstitute = spFarmSpSiteSubstitute;
         }
 
         public abstract void Run();
