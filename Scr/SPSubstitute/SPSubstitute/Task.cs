@@ -1,7 +1,7 @@
-﻿using SPSubstitute.Substitutes;
-
-namespace SPSubstitute
+﻿namespace SPSubstitute
 {
+    using Substitutes;
+    
     public abstract class Task<TSubstitute>
         where TSubstitute : Substitute
     {

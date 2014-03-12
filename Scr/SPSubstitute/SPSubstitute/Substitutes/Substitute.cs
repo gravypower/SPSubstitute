@@ -39,11 +39,6 @@
             Invoke();
             return SpType;
         }
-
-        //public void MapValue(object value)
-        //{
-        //    throw new System.NotImplementedException();
-        //}
     }
 
     public abstract class Substitute

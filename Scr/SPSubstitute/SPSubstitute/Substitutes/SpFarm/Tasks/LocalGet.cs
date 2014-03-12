@@ -1,7 +1,7 @@
-﻿using Microsoft.SharePoint.Administration.Fakes;
-
-namespace SPSubstitute.Substitutes.SPFarm.Tasks
+﻿namespace SPSubstitute.Substitutes.SPFarm.Tasks
 {
+    using Microsoft.SharePoint.Administration.Fakes;
+
     public class LocalGet : Task<SPFarmSubstitute>
     {
         public LocalGet(SPFarmSubstitute farmSpSiteSubstitute) : base(farmSpSiteSubstitute)

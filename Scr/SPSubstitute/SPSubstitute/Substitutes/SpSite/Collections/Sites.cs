@@ -9,28 +9,28 @@
     {
         public Sites ()
         {
-            this.guildSites = new Dictionary<Guid, SPSiteSubstitute>();
-            this.requestUrlSites = new Dictionary<string, SPSiteSubstitute>();
+            _guildSites = new Dictionary<Guid, SPSiteSubstitute>();
+            _requestUrlSites = new Dictionary<string, SPSiteSubstitute>();
         }
 
-        private readonly Dictionary<Guid, SPSiteSubstitute> guildSites;
+        private readonly Dictionary<Guid, SPSiteSubstitute> _guildSites;
         public SPSiteSubstitute this[Guid guid]
         {
             get
             {
-                return this.guildSites[guid];
+                return _guildSites[guid];
             }
-            set { this.guildSites[guid] = value; }
+            set { _guildSites[guid] = value; }
         }
 
-        private readonly Dictionary<string, SPSiteSubstitute> requestUrlSites;
+        private readonly Dictionary<string, SPSiteSubstitute> _requestUrlSites;
         public SPSiteSubstitute this[string requestUrl]
         {
             get
             {
-                return this.requestUrlSites[requestUrl];
+                return _requestUrlSites[requestUrl];
             }
-            set { this.requestUrlSites[requestUrl] = value; }
+            set { _requestUrlSites[requestUrl] = value; }
         }
 
         private SPSiteSubstitute _spSite;

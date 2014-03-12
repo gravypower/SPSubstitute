@@ -1,7 +1,7 @@
-﻿using SPSubstitute.Substitutes;
-
-namespace SPSubstitute
+﻿namespace SPSubstitute
 {
+    using Substitutes;
+
     public static class SPSubstituteExtensions
     {
         public static void Returns<T>(this T value, Substitute returnThis, params T[] returnThese)

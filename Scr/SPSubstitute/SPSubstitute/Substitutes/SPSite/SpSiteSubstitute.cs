@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.SharePoint.Fakes;
-using SPSubstitute.Substitutes.SPSite.Methods;
-using SPSubstitute.Substitutes.SPSite.Properties;
-using SPSubstitute.Substitutes.SPSite.Tasks;
-
-namespace SPSubstitute.Substitutes.SPSite
+﻿namespace SPSubstitute.Substitutes.SPSite
 {
+    using System;
+    using Microsoft.SharePoint.Fakes;
+    using Methods;
+    using Properties;
+    using Tasks;
     using Microsoft.SharePoint;
     using Collections;
 

@@ -6,9 +6,9 @@
     {
         private readonly SPSiteSubstitute _spSiteSubstitute;
 
-        public OpenWebSubstitute(SPSiteSubstitute _spSiteSubstitute)
+        public OpenWebSubstitute(SPSiteSubstitute spSiteSubstitute)
         {
-            this._spSiteSubstitute = _spSiteSubstitute;
+            _spSiteSubstitute = spSiteSubstitute;
         }
 
         public override void MapObjectValue(object value)

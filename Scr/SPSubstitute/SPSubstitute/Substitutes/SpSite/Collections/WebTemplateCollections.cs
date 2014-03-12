@@ -1,8 +1,7 @@
-﻿using SPSubstitute.Substitutes.SpWebTemplateCollection;
-
-namespace SPSubstitute.Substitutes.SPSite.Collections
+﻿namespace SPSubstitute.Substitutes.SPSite.Collections
 {
     using System.Collections.Generic;
+    using SpWebTemplateCollection;
 
     public class WebTemplateCollections
     {

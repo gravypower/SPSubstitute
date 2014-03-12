@@ -1,9 +1,7 @@
-﻿using SPSubstitute.Substitutes.SPPersistedObject;
-
-namespace SPSubstitute.Substitutes.SPFarm.Methods
+﻿namespace SPSubstitute.Substitutes.SPFarm.Methods
 {
     using System;
-
+    using SPPersistedObject;
     using Microsoft.SharePoint.Administration;
 
     public class GetObjectSubstitute : Map

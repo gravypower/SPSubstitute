@@ -6,20 +6,20 @@
 
         public string Value { get; set; }
 
-        public PortalNameSubstitute(SPSiteSubstitute _spSiteSubstitute)
+        public PortalNameSubstitute(SPSiteSubstitute spSiteSubstitute)
         {
-            this._spSiteSubstitute = _spSiteSubstitute;
+            _spSiteSubstitute = spSiteSubstitute;
         }
 
         public override void MapObjectValue(object value)
         {
-            this._spSiteSubstitute.Actions.Add(site => DoMap(value));
+            _spSiteSubstitute.Actions.Add(site => DoMap(value));
             
         }
 
         public void DoMap(object value)
         {
-            this._spSiteSubstitute.Shim.PortalNameGet = () => (string)value;
+            _spSiteSubstitute.Shim.PortalNameGet = () => (string)value;
         }
     }
 }

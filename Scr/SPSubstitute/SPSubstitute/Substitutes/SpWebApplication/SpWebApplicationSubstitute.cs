@@ -1,12 +1,9 @@
-﻿using Microsoft.SharePoint.Administration.Fakes;
-
-namespace SPSubstitute.Substitutes.SPWebApplication
+﻿namespace SPSubstitute.Substitutes.SPWebApplication
 {
-    public class SPWebApplicationSubstitute : Substitute<ShimSPWebApplication, Microsoft.SharePoint.Administration.SPWebApplication>
-    {
+    using Microsoft.SharePoint.Administration.Fakes;
+    using Microsoft.SharePoint.Administration;
 
-        public SPWebApplicationSubstitute()
-        {
-        }
+    public class SPWebApplicationSubstitute : Substitute<ShimSPWebApplication, SPWebApplication>
+    {
     }
 }

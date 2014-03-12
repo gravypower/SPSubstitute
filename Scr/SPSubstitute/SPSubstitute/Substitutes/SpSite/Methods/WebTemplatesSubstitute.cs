@@ -13,27 +13,27 @@
     {
         private readonly SPSiteSubstitute _spSiteSubstitute;
 
-        private readonly uint lcid;
+        private readonly uint _lcid;
 
-        private Arg args;
+        private Arg _args;
 
-        public WebTemplatesSubstitute(SPSiteSubstitute _spSiteSubstitute, uint lcid)
+        public WebTemplatesSubstitute(SPSiteSubstitute spSiteSubstitute, uint lcid)
         {
-            this.lcid = lcid;
-            this._spSiteSubstitute = _spSiteSubstitute;
+            _lcid = lcid;
+            _spSiteSubstitute = spSiteSubstitute;
         }
 
-        public WebTemplatesSubstitute(SPSiteSubstitute _spSiteSubstitute, Arg args)
+        public WebTemplatesSubstitute(SPSiteSubstitute spSiteSubstitute, Arg args)
         {
-            this.args = args;
-            this._spSiteSubstitute = _spSiteSubstitute;
+            _args = args;
+            _spSiteSubstitute = spSiteSubstitute;
         }
 
         public override void MapObjectValue(object value)
         {
-            if (args == null)
+            if (_args == null)
             {
-                _spSiteSubstitute.WebTemplateCollections[lcid] = new SPWebTemplateCollectionSubstitute((SPWebTemplateCollection)value);
+                _spSiteSubstitute.WebTemplateCollections[_lcid] = new SPWebTemplateCollectionSubstitute((SPWebTemplateCollection)value);
                 _spSiteSubstitute.Actions.Add(site => DoMap());
             }
             else
@@ -58,7 +58,7 @@
 
         public void DoMap()
         {
-            this._spSiteSubstitute.Shim.GetWebTemplatesUInt32 = lcid => _spSiteSubstitute.WebTemplateCollections[lcid].SpType;
+            _spSiteSubstitute.Shim.GetWebTemplatesUInt32 = lcid => _spSiteSubstitute.WebTemplateCollections[lcid].SpType;
         }
     }
 }

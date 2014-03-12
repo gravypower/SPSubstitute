@@ -1,26 +1,24 @@
-﻿using SPSubstitute.Substitutes.SPPersistedObject;
-
-namespace SPSubstitute.Substitutes.SPFarm.Collections
+﻿namespace SPSubstitute.Substitutes.SPFarm.Collections
 {
     using System;
     using System.Collections.Generic;
-
+    using SPPersistedObject;
 
     public class Objects
     {
         public Objects()
         {
-            this.guildObjects = new Dictionary<Guid, SPPersistedObjectSubstitute>();
+            _guildObjects = new Dictionary<Guid, SPPersistedObjectSubstitute>();
         }
 
-        private readonly Dictionary<Guid, SPPersistedObjectSubstitute> guildObjects;
+        private readonly Dictionary<Guid, SPPersistedObjectSubstitute> _guildObjects;
         public SPPersistedObjectSubstitute this[Guid guid]
         {
             get
             {
-                return this.guildObjects[guid];
+                return _guildObjects[guid];
             }
-            set { this.guildObjects[guid] = value; }
+            set { _guildObjects[guid] = value; }
         }
     }
 }

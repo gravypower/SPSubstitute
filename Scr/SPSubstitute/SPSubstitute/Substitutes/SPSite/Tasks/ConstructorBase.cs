@@ -1,8 +1,7 @@
-﻿using Microsoft.SharePoint.Fakes;
-using Microsoft.SharePoint;
-
-namespace SPSubstitute.Substitutes.SPSite.Tasks
+﻿namespace SPSubstitute.Substitutes.SPSite.Tasks
 {
+    using Microsoft.SharePoint.Fakes;
+
     public abstract class ConstructorBase<TConstructorArg> : Task<SPSiteSubstitute>
     {
         protected ConstructorBase(SPSiteSubstitute farmSpSiteSubstitute, Arg args) : base(farmSpSiteSubstitute, args)

@@ -5,7 +5,7 @@ namespace SPSubstitute.Substitutes.SPWeb.Properties
 {
     public class WebsSubstitute : Map
     {
-        private SPWebSubstitute _spWebSubstitute;
+        private readonly SPWebSubstitute _spWebSubstitute;
 
         public WebsSubstitute(SPWebSubstitute spWebSubstitute)
         {
