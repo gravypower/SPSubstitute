@@ -1,8 +1,8 @@
-﻿namespace SPSubstitute.Substitutes.SpFarm.Tasks
+﻿namespace SPSubstitute.Substitutes.SPFarm.Tasks
 {
-    public class GetObjectGuid : Task<SpFarmSubstitute>
+    public class GetObjectGuid : Task<SPFarmSubstitute>
     {
-        public GetObjectGuid(SpFarmSubstitute spFarmSpSiteSubstitute) : base(spFarmSpSiteSubstitute)
+        public GetObjectGuid(SPFarmSubstitute farmSpSiteSubstitute) : base(farmSpSiteSubstitute)
         {
         }
 

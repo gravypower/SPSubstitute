@@ -2,22 +2,22 @@
 
 namespace SPSubstitute
 {
-    public abstract class Task<TSpSubstitute>
-        where TSpSubstitute : SpSubstitute
+    public abstract class Task<TSubstitute>
+        where TSubstitute : Substitute
     {
-        protected TSpSubstitute SpSpFarmSpSiteSubstitute;
+        protected TSubstitute FarmSpSiteSubstitute;
 
         protected Arg Args;
 
-        protected Task(TSpSubstitute spFarmSpSiteSubstitute, Arg args)
+        protected Task(TSubstitute farmSpSiteSubstitute, Arg args)
         {
-            SpSpFarmSpSiteSubstitute = spFarmSpSiteSubstitute;
+            FarmSpSiteSubstitute = farmSpSiteSubstitute;
             Args = args;
         }
 
-        protected Task(TSpSubstitute spFarmSpSiteSubstitute)
+        protected Task(TSubstitute farmSpSiteSubstitute)
         {
-            SpSpFarmSpSiteSubstitute = spFarmSpSiteSubstitute;
+            FarmSpSiteSubstitute = farmSpSiteSubstitute;
         }
 
         public abstract void Run();

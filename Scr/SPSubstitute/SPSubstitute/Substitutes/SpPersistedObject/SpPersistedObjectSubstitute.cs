@@ -1,11 +1,10 @@
-﻿using Microsoft.SharePoint.Administration;
-using Microsoft.SharePoint.Administration.Fakes;
+﻿using Microsoft.SharePoint.Administration.Fakes;
 
-namespace SPSubstitute.Substitutes.SpPersistedObject
+namespace SPSubstitute.Substitutes.SPPersistedObject
 {
-    public class SpPersistedObjectSubstitute : SpSubstitute<ShimSPPersistedObject, SPPersistedObject>
+    public class SPPersistedObjectSubstitute : Substitute<ShimSPPersistedObject, Microsoft.SharePoint.Administration.SPPersistedObject>
     {
-        public SpPersistedObjectSubstitute(SPPersistedObject persistedObject)
+        public SPPersistedObjectSubstitute(Microsoft.SharePoint.Administration.SPPersistedObject persistedObject)
         {
             Shim = new ShimSPPersistedObject(persistedObject);
         }

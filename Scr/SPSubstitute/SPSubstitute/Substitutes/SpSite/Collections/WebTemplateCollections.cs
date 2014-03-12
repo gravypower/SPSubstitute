@@ -1,18 +1,18 @@
-﻿namespace SPSubstitute.Substitutes.SpSite.Collections
+﻿using SPSubstitute.Substitutes.SpWebTemplateCollection;
+
+namespace SPSubstitute.Substitutes.SPSite.Collections
 {
     using System.Collections.Generic;
-
-    using SPSubstitute.Substitutes.SpWebTemplateCollection;
 
     public class WebTemplateCollections
     {
         public WebTemplateCollections()
         {
-            this.webTemplateCollections = new Dictionary<uint, SpWebTemplateCollectionSubstitute>();
+            this.webTemplateCollections = new Dictionary<uint, SPWebTemplateCollectionSubstitute>();
         }
 
-        private readonly Dictionary<uint, SpWebTemplateCollectionSubstitute> webTemplateCollections;
-        public SpWebTemplateCollectionSubstitute this[uint guid]
+        private readonly Dictionary<uint, SPWebTemplateCollectionSubstitute> webTemplateCollections;
+        public SPWebTemplateCollectionSubstitute this[uint guid]
         {
             get
             {

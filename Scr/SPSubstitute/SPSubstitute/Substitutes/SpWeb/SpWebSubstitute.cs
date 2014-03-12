@@ -1,20 +1,20 @@
 ﻿using System.Linq;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Fakes;
-using SPSubstitute.Substitutes.SpSite;
-using SPSubstitute.Substitutes.SpWeb.Collections;
-using SPSubstitute.Substitutes.SpWeb.Properties;
+using SPSubstitute.Substitutes.SPSite;
+using SPSubstitute.Substitutes.SPWeb.Collections;
+using SPSubstitute.Substitutes.SPWeb.Properties;
 
-namespace SPSubstitute.Substitutes.SpWeb
+namespace SPSubstitute.Substitutes.SPWeb
 {
-    public class SpWebSubstitute : SpSubstitute<ShimSPWeb, SPWeb>
+    public class WebSubstitute : Substitute<ShimSPWeb, Microsoft.SharePoint.SPWeb>
     {
         public WebsCollections WebsCollections;
 
-        public SpWebSubstitute()
+        public WebSubstitute()
             : this(Arg.Any())
         {
-            var site = new SpSiteSubstitute(Arg.Any());
+            var site = new SPSiteSubstitute(Arg.Any());
             site.OpenWeb().Returns(this);
 
             Shim.WebsGet = () =>
@@ -31,7 +31,7 @@ namespace SPSubstitute.Substitutes.SpWeb
             };
         }
 
-        public SpWebSubstitute(Arg args)
+        public WebSubstitute(Arg args)
         {
             WebsCollections = new WebsCollections();
             Webs = new WebsSubstitute(this);

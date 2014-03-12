@@ -1,14 +1,13 @@
-﻿using Microsoft.SharePoint.Administration;
-using Microsoft.SharePoint.Administration.Fakes;
-using SPSubstitute.Substitutes.SpWebApplication.Properties;
+﻿using Microsoft.SharePoint.Administration.Fakes;
+using SPSubstitute.Substitutes.SPWebApplication.Properties;
 
-namespace SPSubstitute.Substitutes.SpWebApplication
+namespace SPSubstitute.Substitutes.SPWebApplication
 {
-    public class SpWebApplicationSubstitute : SpSubstitute<ShimSPWebApplication, SPWebApplication>
+    public class SPWebApplicationSubstitute : Substitute<ShimSPWebApplication, Microsoft.SharePoint.Administration.SPWebApplication>
     {
         public SitesSubstitute Sites;
 
-        public SpWebApplicationSubstitute()
+        public SPWebApplicationSubstitute()
         {
         }
     }

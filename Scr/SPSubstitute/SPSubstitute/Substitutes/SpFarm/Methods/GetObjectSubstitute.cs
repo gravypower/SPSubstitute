@@ -1,32 +1,32 @@
-﻿namespace SPSubstitute.Substitutes.SpFarm.Methods
+﻿using SPSubstitute.Substitutes.SPPersistedObject;
+
+namespace SPSubstitute.Substitutes.SPFarm.Methods
 {
     using System;
 
     using Microsoft.SharePoint.Administration;
 
-    using SPSubstitute.Substitutes.SpPersistedObject;
-
     public class GetObjectSubstitute : Map
     {
-        private readonly SpFarmSubstitute _spFarmSubstitute;
+        private readonly SPFarmSubstitute _farmSubstitute;
 
         private readonly Guid objectId;
 
-        public GetObjectSubstitute(SpFarmSubstitute _spFarmSubstitute, Guid objectId)
+        public GetObjectSubstitute(SPFarmSubstitute _farmSubstitute, Guid objectId)
         {
             this.objectId = objectId;
-            this._spFarmSubstitute = _spFarmSubstitute;
+            this._farmSubstitute = _farmSubstitute;
         }
 
         public override void MapObjectValue(object value)
         {
-            this._spFarmSubstitute.Objects[objectId] = new SpPersistedObjectSubstitute((SPPersistedObject)value);
-            _spFarmSubstitute.Actions.Add(site => DoMap());
+            this._farmSubstitute.Objects[objectId] = new SPPersistedObjectSubstitute((SPPersistedObject)value);
+            _farmSubstitute.Actions.Add(site => DoMap());
         }
 
         public void DoMap()
         {
-            this._spFarmSubstitute.Shim.GetObjectGuid = guid => this._spFarmSubstitute.Objects[guid].SpType;
+            this._farmSubstitute.Shim.GetObjectGuid = guid => this._farmSubstitute.Objects[guid].SpType;
         }
     }
 }

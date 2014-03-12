@@ -1,26 +1,26 @@
 ﻿using Microsoft.SharePoint.Fakes;
 using Microsoft.SharePoint;
 
-namespace SPSubstitute.Substitutes.SpSite.Tasks
+namespace SPSubstitute.Substitutes.SPSite.Tasks
 {
-    public abstract class ConstructorBase<TConstructorArg> : Task<SpSiteSubstitute>
+    public abstract class ConstructorBase<TConstructorArg> : Task<SPSiteSubstitute>
     {
-        protected ConstructorBase(SpSiteSubstitute spFarmSpSiteSubstitute, Arg args) : base(spFarmSpSiteSubstitute, args)
+        protected ConstructorBase(SPSiteSubstitute farmSpSiteSubstitute, Arg args) : base(farmSpSiteSubstitute, args)
         {
         }
 
-        protected ConstructorBase(SpSiteSubstitute spFarmSpSiteSubstitute) : base(spFarmSpSiteSubstitute)
+        protected ConstructorBase(SPSiteSubstitute farmSpSiteSubstitute) : base(farmSpSiteSubstitute)
         {
         }
 
-        public void Run(SPSite site, TConstructorArg constructorArg)
+        public void Run(Microsoft.SharePoint.SPSite site, TConstructorArg constructorArg)
         {
             var shimSite = new ShimSPSite(site);
 
             if (Args != null)
             {
-                SpSpFarmSpSiteSubstitute.Sites[Args].Shim = shimSite;
-                foreach (var action in SpSpFarmSpSiteSubstitute.Sites[Args].Actions)
+                FarmSpSiteSubstitute.Sites[Args].Shim = shimSite;
+                foreach (var action in FarmSpSiteSubstitute.Sites[Args].Actions)
                 {
                     action.Invoke(shimSite);
                 }

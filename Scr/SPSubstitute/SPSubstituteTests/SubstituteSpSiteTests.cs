@@ -1,6 +1,6 @@
 ﻿using SPSubstitute;
-using SPSubstitute.Substitutes.SpSite;
-using SPSubstitute.Substitutes.SpWeb;
+using SPSubstitute.Substitutes.SPSite;
+using SPSubstitute.Substitutes.SPWeb;
 using SPSubstitute.Substitutes.SpWebTemplateCollection;
 
 namespace SPSubstituteTests
@@ -18,7 +18,7 @@ namespace SPSubstituteTests
             //Arrange
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
 
-            var substituteSpSite = new SpSiteSubstitute(guild);
+            var substituteSpSite = new SPSiteSubstitute(guild);
 
             //Act
             SPSite spSite;
@@ -37,7 +37,7 @@ namespace SPSubstituteTests
             //Arrange
             var requestUrl = "http://SomeURL";
 
-            var substituteSpSite = new SpSiteSubstitute(requestUrl);
+            var substituteSpSite = new SPSiteSubstitute(requestUrl);
 
             //Act
             SPSite spSite;
@@ -58,7 +58,7 @@ namespace SPSubstituteTests
             var requestUrl = "http://SomeURL";
             var portalName = "SomeTitle";
 
-            var substituteSpSite = new SpSiteSubstitute(requestUrl);
+            var substituteSpSite = new SPSiteSubstitute(requestUrl);
             
             //Act
             substituteSpSite.PortalName.Returns(portalName);
@@ -77,7 +77,7 @@ namespace SPSubstituteTests
             //Arrange
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
             var portalName = "SomeTitle";
-            var substituteSpSite = new SpSiteSubstitute(guild);
+            var substituteSpSite = new SPSiteSubstitute(guild);
 
             //Act
             substituteSpSite.PortalName.Returns(portalName);
@@ -94,9 +94,9 @@ namespace SPSubstituteTests
         {
             //Arrange
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
-            var substituteSpSite = new SpSiteSubstitute(guild);
+            var substituteSpSite = new SPSiteSubstitute(guild);
 
-            var templateCollection = new SpWebTemplateCollectionSubstitute();
+            var templateCollection = new SPWebTemplateCollectionSubstitute();
             uint lcid = 1033;
 
             //Act
@@ -114,12 +114,12 @@ namespace SPSubstituteTests
         {
             //Arrange
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
-            var substituteSpSite = new SpSiteSubstitute(guild);
+            var substituteSpSite = new SPSiteSubstitute(guild);
 
-            var templateCollectionOne = new SpWebTemplateCollectionSubstitute();
+            var templateCollectionOne = new SPWebTemplateCollectionSubstitute();
             uint lcidOne = 1033;
 
-            var templateCollectionTwo = new SpWebTemplateCollectionSubstitute();
+            var templateCollectionTwo = new SPWebTemplateCollectionSubstitute();
             uint lcidTwo = 1034;
 
             //Act
@@ -139,9 +139,9 @@ namespace SPSubstituteTests
         {
             //Arrange
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
-            var substituteSpSite = new SpSiteSubstitute(guild);
+            var substituteSpSite = new SPSiteSubstitute(guild);
 
-            var web = new SpWebSubstitute();
+            var web = new WebSubstitute();
 
             //Act
             substituteSpSite.OpenWeb().Returns(web);
@@ -157,9 +157,9 @@ namespace SPSubstituteTests
         {
             //Arrange
             var requestUrl = "http://SomeURL";
-            var substituteSpSite = new SpSiteSubstitute(requestUrl);
+            var substituteSpSite = new SPSiteSubstitute(requestUrl);
 
-            var web = new SpWebSubstitute();
+            var web = new WebSubstitute();
 
             //Act
             substituteSpSite.OpenWeb().Returns(web);

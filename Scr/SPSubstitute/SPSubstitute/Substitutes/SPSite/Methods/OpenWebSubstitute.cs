@@ -1,15 +1,14 @@
-﻿using Microsoft.SharePoint;
-using Microsoft.SharePoint.Fakes;
-
-namespace SPSubstitute.Substitutes.SpSite.Methods
+﻿namespace SPSubstitute.Substitutes.SPSite.Methods
 {
+    using Microsoft.SharePoint.Fakes;
+
     public class OpenWebSubstitute : Map
     {
-        private readonly SpSiteSubstitute _spSiteSubstitute;
+        private readonly SPSiteSubstitute _spSiteSubstitute;
 
-        public OpenWebSubstitute(SpSiteSubstitute spSiteSubstitute)
+        public OpenWebSubstitute(SPSiteSubstitute _spSiteSubstitute)
         {
-            _spSiteSubstitute = spSiteSubstitute;
+            this._spSiteSubstitute = _spSiteSubstitute;
         }
 
         public override void MapObjectValue(object value)
@@ -19,7 +18,7 @@ namespace SPSubstitute.Substitutes.SpSite.Methods
             _spSiteSubstitute.Actions.Add(
                 site =>
                 {
-                    _spSiteSubstitute.Shim.OpenWeb = () => (SPWeb) value;
+                    _spSiteSubstitute.Shim.OpenWeb = () => (Microsoft.SharePoint.SPWeb) value;
                 });
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace SPSubstitute.Substitutes.SpSite.Methods
+﻿namespace SPSubstitute.Substitutes.SPSite.Methods
 {
     using System.Collections.Generic;
 
@@ -11,43 +11,43 @@
 
     public class WebTemplatesSubstitute : Map
     {
-        private readonly SpSiteSubstitute spSiteSubstitute;
+        private readonly SPSiteSubstitute _spSiteSubstitute;
 
         private readonly uint lcid;
 
         private Arg args;
 
-        public WebTemplatesSubstitute(SpSiteSubstitute spSiteSubstitute, uint lcid)
+        public WebTemplatesSubstitute(SPSiteSubstitute _spSiteSubstitute, uint lcid)
         {
             this.lcid = lcid;
-            this.spSiteSubstitute = spSiteSubstitute;
+            this._spSiteSubstitute = _spSiteSubstitute;
         }
 
-        public WebTemplatesSubstitute(SpSiteSubstitute spSiteSubstitute, Arg args)
+        public WebTemplatesSubstitute(SPSiteSubstitute _spSiteSubstitute, Arg args)
         {
             this.args = args;
-            this.spSiteSubstitute = spSiteSubstitute;
+            this._spSiteSubstitute = _spSiteSubstitute;
         }
 
         public override void MapObjectValue(object value)
         {
             if (args == null)
             {
-                spSiteSubstitute.WebTemplateCollections[lcid] = new SpWebTemplateCollectionSubstitute((SPWebTemplateCollection)value);
-                spSiteSubstitute.Actions.Add(site => DoMap());
+                _spSiteSubstitute.WebTemplateCollections[lcid] = new SPWebTemplateCollectionSubstitute((SPWebTemplateCollection)value);
+                _spSiteSubstitute.Actions.Add(site => DoMap());
             }
             else
             {
-                spSiteSubstitute.Shim = new ShimSPSite();
+                _spSiteSubstitute.Shim = new ShimSPSite();
 
-                spSiteSubstitute.Actions.Add(
+                _spSiteSubstitute.Actions.Add(
                     site =>
                         {
-                            spSiteSubstitute.Shim.GetWebTemplatesUInt32 = lcid =>
+                            _spSiteSubstitute.Shim.GetWebTemplatesUInt32 = lcid =>
                                 {
                                     var shim = new ShimSPWebTemplateCollection();
 
-                                    var webTemplates = ((List<SpWebTemplateSubstitute>)value).Select(x => x.SpType);
+                                    var webTemplates = ((List<SPWebTemplateSubstitute>)value).Select(x => x.SpType);
                                     shim.Bind(webTemplates);
 
                                     return shim;
@@ -58,7 +58,7 @@
 
         public void DoMap()
         {
-            this.spSiteSubstitute.Shim.GetWebTemplatesUInt32 = lcid => spSiteSubstitute.WebTemplateCollections[lcid].SpType;
+            this._spSiteSubstitute.Shim.GetWebTemplatesUInt32 = lcid => _spSiteSubstitute.WebTemplateCollections[lcid].SpType;
         }
     }
 }

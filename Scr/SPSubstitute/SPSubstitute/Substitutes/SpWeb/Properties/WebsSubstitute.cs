@@ -1,23 +1,23 @@
 ﻿using System;
 using Microsoft.SharePoint.Fakes;
 
-namespace SPSubstitute.Substitutes.SpWeb.Properties
+namespace SPSubstitute.Substitutes.SPWeb.Properties
 {
     public class WebsSubstitute : Map
     {
-        private SpWebSubstitute _spWebSubstitute;
+        private WebSubstitute _webSubstitute;
 
-        public WebsSubstitute(SpWebSubstitute spWebSubstitute)
+        public WebsSubstitute(WebSubstitute webSubstitute)
         {
-            _spWebSubstitute = spWebSubstitute;
+            _webSubstitute = webSubstitute;
         }
 
-        public SpWebSubstitute Add(string webUrl, string title, string description, uint lcid, string webTemplate,
+        public WebSubstitute Add(string webUrl, string title, string description, uint lcid, string webTemplate,
             bool useUniquePermissions, bool bConvertIfThere)
         {
-            _spWebSubstitute.WebsCollections[webUrl] = new SpWebSubstitute(Arg.Any());
-            _spWebSubstitute.WebsCollections[webUrl].Shim = new ShimSPWeb();
-            return _spWebSubstitute.WebsCollections[webUrl];
+            _webSubstitute.WebsCollections[webUrl] = new WebSubstitute(Arg.Any());
+            _webSubstitute.WebsCollections[webUrl].Shim = new ShimSPWeb();
+            return _webSubstitute.WebsCollections[webUrl];
         }
 
         public override void MapObjectValue(object value)

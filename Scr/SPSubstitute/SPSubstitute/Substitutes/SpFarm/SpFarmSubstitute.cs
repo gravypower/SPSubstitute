@@ -1,6 +1,6 @@
 ﻿
 
-namespace SPSubstitute.Substitutes.SpFarm
+namespace SPSubstitute.Substitutes.SPFarm
 {
     using System;
     using Microsoft.SharePoint.Administration;
@@ -10,11 +10,11 @@ namespace SPSubstitute.Substitutes.SpFarm
     using Collections;
     using Methods;
 
-    public class SpFarmSubstitute : SpSubstitute<ShimSPFarm, SPFarm>
+    public class SPFarmSubstitute : Substitute<ShimSPFarm, SPFarm>
     {
         public Objects Objects { get; private set; }
 
-        public SpFarmSubstitute()
+        public SPFarmSubstitute()
         {
             new LocalGet(this).Run();
             Objects = new Objects();

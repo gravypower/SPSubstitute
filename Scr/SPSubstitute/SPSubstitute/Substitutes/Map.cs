@@ -7,7 +7,7 @@
 
     public abstract class Map : IMap
     {
-        public void MapSpSubstituteValue(SpSubstitute value)
+        public void MapSpSubstituteValue(Substitute value)
         {
             MapObjectValue(value.GetValueForMapping());
         }

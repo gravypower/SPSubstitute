@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SPSubstitute.Substitutes.SpWebApplication.Properties
+namespace SPSubstitute.Substitutes.SPWebApplication.Properties
 {
     public class SitesSubstitute : Map
     {

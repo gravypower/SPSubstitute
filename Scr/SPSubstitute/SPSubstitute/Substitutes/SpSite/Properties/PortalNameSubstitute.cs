@@ -1,25 +1,25 @@
-﻿namespace SPSubstitute.Substitutes.SpSite.Properties
+﻿namespace SPSubstitute.Substitutes.SPSite.Properties
 {
     public class PortalNameSubstitute : Map
     {
-        private readonly SpSiteSubstitute spSiteSubstitute;
+        private readonly SPSiteSubstitute _spSiteSubstitute;
 
         public string Value { get; set; }
 
-        public PortalNameSubstitute(SpSiteSubstitute spSiteSubstitute)
+        public PortalNameSubstitute(SPSiteSubstitute _spSiteSubstitute)
         {
-            this.spSiteSubstitute = spSiteSubstitute;
+            this._spSiteSubstitute = _spSiteSubstitute;
         }
 
         public override void MapObjectValue(object value)
         {
-            this.spSiteSubstitute.Actions.Add(site => DoMap(value));
+            this._spSiteSubstitute.Actions.Add(site => DoMap(value));
             
         }
 
         public void DoMap(object value)
         {
-            this.spSiteSubstitute.Shim.PortalNameGet = () => (string)value;
+            this._spSiteSubstitute.Shim.PortalNameGet = () => (string)value;
         }
     }
 }

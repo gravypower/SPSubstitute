@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.SharePoint;
 using NUnit.Framework;
-using SPSubstitute.Substitutes.SpWeb;
+using SPSubstitute.Substitutes.SPWeb;
 
 namespace SPSubstituteTests
 {
@@ -12,7 +12,7 @@ namespace SPSubstituteTests
         public void CanSubstituteWebAndAddWebNoArgumentFromSiteFromString()
         {
             //Arrange
-            var substituteWeb = new SpWebSubstitute();
+            var substituteWeb = new WebSubstitute();
             var requestUrl = "http://SomeURL";
 
             //Act
@@ -33,7 +33,7 @@ namespace SPSubstituteTests
         public void CanSubstituteWebAndAddWebNoArgumentFromSiteFromGuid()
         {
             //Arrange
-            var substituteWeb = new SpWebSubstitute();
+            var substituteWeb = new WebSubstitute();
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
 
             //Act

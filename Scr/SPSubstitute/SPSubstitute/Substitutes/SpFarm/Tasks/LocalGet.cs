@@ -1,10 +1,10 @@
 ﻿using Microsoft.SharePoint.Administration.Fakes;
 
-namespace SPSubstitute.Substitutes.SpFarm.Tasks
+namespace SPSubstitute.Substitutes.SPFarm.Tasks
 {
-    public class LocalGet : Task<SpFarmSubstitute>
+    public class LocalGet : Task<SPFarmSubstitute>
     {
-        public LocalGet(SpFarmSubstitute spFarmSpSiteSubstitute) : base(spFarmSpSiteSubstitute)
+        public LocalGet(SPFarmSubstitute farmSpSiteSubstitute) : base(farmSpSiteSubstitute)
         {
         }
 
@@ -12,8 +12,8 @@ namespace SPSubstitute.Substitutes.SpFarm.Tasks
         {
             ShimSPFarm.LocalGet = () =>
                 {
-                    this.SpSpFarmSpSiteSubstitute.Invoke();
-                    return this.SpSpFarmSpSiteSubstitute.SpType;
+                    this.FarmSpSiteSubstitute.Invoke();
+                    return this.FarmSpSiteSubstitute.SpType;
                 };
         }
     }

@@ -1,16 +1,15 @@
 ﻿using System;
 using Microsoft.SharePoint.Fakes;
+using SPSubstitute.Substitutes.SPSite.Methods;
+using SPSubstitute.Substitutes.SPSite.Properties;
+using SPSubstitute.Substitutes.SPSite.Tasks;
 
-using SPSubstitute.Substitutes.SpSite.Methods;
-using SPSubstitute.Substitutes.SpSite.Properties;
-using SPSubstitute.Substitutes.SpSite.Tasks;
-
-namespace SPSubstitute.Substitutes.SpSite
+namespace SPSubstitute.Substitutes.SPSite
 {
     using Microsoft.SharePoint;
     using Collections;
 
-    public class SpSiteSubstitute : SpSubstitute<ShimSPSite, SPSite>
+    public class SPSiteSubstitute : Substitute<ShimSPSite, SPSite>
     {
         public Sites Sites;
 
@@ -18,21 +17,21 @@ namespace SPSubstitute.Substitutes.SpSite
 
         public PortalNameSubstitute PortalName;
 
-        public SpSiteSubstitute(Guid guid)
+        public SPSiteSubstitute(Guid guid)
             : this()
         {
             Sites[guid] = this;
             new ConstructorGuid(this).Run();
         }
 
-        public SpSiteSubstitute(string requestUrl)
+        public SPSiteSubstitute(string requestUrl)
             : this()
         {
             Sites[requestUrl] = this;
             new ConstructorString(this).Run();
         }
 
-        public SpSiteSubstitute(Arg args)
+        public SPSiteSubstitute(Arg args)
             : this()
         {
             Sites[args] = this;
@@ -40,7 +39,7 @@ namespace SPSubstitute.Substitutes.SpSite
             new ConstructorGuid(this, args).Run();
         }
 
-        private SpSiteSubstitute()
+        private SPSiteSubstitute()
         {
             Sites = new Sites();
             WebTemplateCollections = new WebTemplateCollections();

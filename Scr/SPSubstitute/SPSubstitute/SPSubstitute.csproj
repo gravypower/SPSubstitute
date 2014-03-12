@@ -45,39 +45,39 @@
   <ItemGroup>
     <Compile Include="Arg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Substitutes\SpSecurity\Play.cs" />
-    <Compile Include="Substitutes\SpFarm\Methods\GetObjectSubstitute.cs" />
-    <Compile Include="Substitutes\SpFarm\Collections\Objects.cs" />
-    <Compile Include="Substitutes\SpFarm\SpFarmSubstitute.cs" />
-    <Compile Include="Substitutes\SpFarm\Tasks\GetObjectGuid.cs" />
-    <Compile Include="Substitutes\SpFarm\Tasks\LocalGet.cs" />
-    <Compile Include="Substitutes\SpPersistedObject\SpPersistedObjectSubstitute.cs" />
-    <Compile Include="Substitutes\SpSite\Collections\WebTemplateCollections.cs" />
-    <Compile Include="Substitutes\SpSite\Methods\OpenWebSubstitute.cs" />
-    <Compile Include="Substitutes\SpSite\Tasks\ConstructorBase.cs" />
-    <Compile Include="Substitutes\SpSite\Tasks\ConstructorGuid.cs" />
-    <Compile Include="Substitutes\SpSite\Tasks\ConstructorString.cs" />
-    <Compile Include="Substitutes\SpSubstitute.cs" />
-    <Compile Include="SpSubstituteExtensions.cs" />
-    <Compile Include="Substitutes\SpSite\Collections\Sites.cs" />
-    <Compile Include="Substitutes\SpSite\Methods\WebTemplatesSubstitute.cs" />
-    <Compile Include="Substitutes\SpSite\SpSiteSubstitute.cs" />
-    <Compile Include="Substitutes\SpSite\Properties\PortalNameSubstitute.cs" />
-    <Compile Include="Substitutes\SpWebApplication\Properties\SitesSubstitute.cs" />
-    <Compile Include="Substitutes\SpWebApplication\SpWebApplicationSubstitute.cs" />
-    <Compile Include="Substitutes\SpWebTemplateCollection\SpWebTemplateCollectionSubstitute.cs" />
+    <Compile Include="Substitutes\SPSecurity\Play.cs" />
+    <Compile Include="Substitutes\SPFarm\Methods\GetObjectSubstitute.cs" />
+    <Compile Include="Substitutes\SPFarm\Collections\Objects.cs" />
+    <Compile Include="Substitutes\SPFarm\SPFarmSubstitute.cs" />
+    <Compile Include="Substitutes\SPFarm\Tasks\GetObjectGuid.cs" />
+    <Compile Include="Substitutes\SPFarm\Tasks\LocalGet.cs" />
+    <Compile Include="Substitutes\SPPersistedObject\SPPersistedObjectSubstitute.cs" />
+    <Compile Include="Substitutes\SPSite\Collections\WebTemplateCollections.cs" />
+    <Compile Include="Substitutes\SPSite\Methods\OpenWebSubstitute.cs" />
+    <Compile Include="Substitutes\SPSite\Tasks\ConstructorBase.cs" />
+    <Compile Include="Substitutes\SPSite\Tasks\ConstructorGuid.cs" />
+    <Compile Include="Substitutes\SPSite\Tasks\ConstructorString.cs" />
+    <Compile Include="Substitutes\Substitute.cs" />
+    <Compile Include="SPSubstituteExtensions.cs" />
+    <Compile Include="Substitutes\SPSite\Collections\Sites.cs" />
+    <Compile Include="Substitutes\SPSite\Methods\WebTemplatesSubstitute.cs" />
+    <Compile Include="Substitutes\SPSite\SPSiteSubstitute.cs" />
+    <Compile Include="Substitutes\SPSite\Properties\PortalNameSubstitute.cs" />
+    <Compile Include="Substitutes\SPWebApplication\Properties\SitesSubstitute.cs" />
+    <Compile Include="Substitutes\SPWebApplication\SPWebApplicationSubstitute.cs" />
+    <Compile Include="Substitutes\SPWebTemplateCollection\SPWebTemplateCollectionSubstitute.cs" />
     <Compile Include="Substitutes\Map.cs" />
-    <Compile Include="Substitutes\SpWebTemplate\SpWebTemplateSubstitute.cs" />
-    <Compile Include="Substitutes\SpWeb\Collections\WebsCollections.cs" />
-    <Compile Include="Substitutes\SpWeb\Properties\WebsSubstitute.cs" />
-    <Compile Include="Substitutes\SpWeb\SpWebSubstitute.cs" />
+    <Compile Include="Substitutes\SPWebTemplate\SPWebTemplateSubstitute.cs" />
+    <Compile Include="Substitutes\SPWeb\Collections\WebsCollections.cs" />
+    <Compile Include="Substitutes\SPWeb\Properties\WebsSubstitute.cs" />
+    <Compile Include="Substitutes\SPWeb\SPWebSubstitute.cs" />
     <Compile Include="Task.cs" />
   </ItemGroup>
   <ItemGroup>
     <Fakes Include="Fakes\Microsoft.SharePoint.fakes" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Substitutes\SpWeb\Methods\" />
+    <Folder Include="Substitutes\SPWeb\Methods\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,7 +4,7 @@
 
     using Microsoft.QualityTools.Testing.Fakes.Shims;
 
-    public abstract class SpSubstitute<TShim, TSpType> : SpSubstitute//, IMap
+    public abstract class Substitute<TShim, TSpType> : Substitute
         where TSpType : class
         where TShim : ShimBase<TSpType>, new ()
     {
@@ -29,7 +29,7 @@
             }
         }
 
-        protected SpSubstitute()
+        protected Substitute()
         {
             Actions = new List<System.Action<TShim>>();
         }
@@ -46,7 +46,7 @@
         //}
     }
 
-    public abstract class SpSubstitute
+    public abstract class Substitute
     {
         internal abstract object GetValueForMapping();
     }

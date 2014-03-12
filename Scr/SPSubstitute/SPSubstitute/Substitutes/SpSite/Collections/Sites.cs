@@ -1,20 +1,20 @@
-﻿namespace SPSubstitute.Substitutes.SpSite.Collections
+﻿namespace SPSubstitute.Substitutes.SPSite.Collections
 {
     using System;
     using System.Collections.Generic;
 
-    using SpSite;
+    using SPSite;
 
     public class Sites
     {
         public Sites ()
         {
-            this.guildSites = new Dictionary<Guid, SpSiteSubstitute>();
-            this.requestUrlSites = new Dictionary<string, SpSiteSubstitute>();
+            this.guildSites = new Dictionary<Guid, SPSiteSubstitute>();
+            this.requestUrlSites = new Dictionary<string, SPSiteSubstitute>();
         }
 
-        private readonly Dictionary<Guid, SpSiteSubstitute> guildSites;
-        public SpSiteSubstitute this[Guid guid]
+        private readonly Dictionary<Guid, SPSiteSubstitute> guildSites;
+        public SPSiteSubstitute this[Guid guid]
         {
             get
             {
@@ -23,8 +23,8 @@
             set { this.guildSites[guid] = value; }
         }
 
-        private readonly Dictionary<string, SpSiteSubstitute> requestUrlSites;
-        public SpSiteSubstitute this[string requestUrl]
+        private readonly Dictionary<string, SPSiteSubstitute> requestUrlSites;
+        public SPSiteSubstitute this[string requestUrl]
         {
             get
             {
@@ -33,14 +33,14 @@
             set { this.requestUrlSites[requestUrl] = value; }
         }
 
-        private SpSiteSubstitute site;
-        public SpSiteSubstitute this[Arg requestUrl]
+        private SPSiteSubstitute _spSite;
+        public SPSiteSubstitute this[Arg requestUrl]
         {
             get
             {
-                return site;
+                return _spSite;
             }
-            set { site = value; }
+            set { _spSite = value; }
         }
     }
 }

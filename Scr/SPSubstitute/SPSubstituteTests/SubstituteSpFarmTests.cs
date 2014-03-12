@@ -3,8 +3,8 @@
 using Microsoft.SharePoint.Administration;
 using NUnit.Framework;
 using SPSubstitute;
-using SPSubstitute.Substitutes.SpFarm;
-using SPSubstitute.Substitutes.SpWebApplication;
+using SPSubstitute.Substitutes.SPFarm;
+using SPSubstitute.Substitutes.SPWebApplication;
 
 namespace SPSubstituteTests
 {
@@ -15,7 +15,7 @@ namespace SPSubstituteTests
         public void CanSubstituteSpFarmLocal()
         {
             //Act
-            var substituteSpFarm = new SpFarmSubstitute();
+            var substituteSpFarm = new SPFarmSubstitute();
 
             //Assert
             Assert.That(SPFarm.Local, Is.Not.Null);
@@ -26,9 +26,9 @@ namespace SPSubstituteTests
         public void CanReturnWebApplicationFromGetObject()
         {
             //Assign
-            var substituteSpFarm = new SpFarmSubstitute();
+            var substituteSpFarm = new SPFarmSubstitute();
             var guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
-            var webApplication = new SpWebApplicationSubstitute();
+            var webApplication = new SPWebApplicationSubstitute();
 
             //Act
             substituteSpFarm.GetObject(guild).Returns(webApplication);
@@ -44,13 +44,13 @@ namespace SPSubstituteTests
         public void CanReturnTwoWebApplicationFromGetObject()
         {
             //Assign
-            var substituteSpFarm = new SpFarmSubstitute();
+            var substituteSpFarm = new SPFarmSubstitute();
             
             var guildOne = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
-            var webApplicationOne = new SpWebApplicationSubstitute();
+            var webApplicationOne = new SPWebApplicationSubstitute();
 
             var guildTwo = new Guid("c1c353d1-ad6c-459c-bd78-419df29aa8a6");
-            var webApplicationTwo = new SpWebApplicationSubstitute();
+            var webApplicationTwo = new SPWebApplicationSubstitute();
 
             //Act
             substituteSpFarm.GetObject(guildOne).Returns(webApplicationOne);

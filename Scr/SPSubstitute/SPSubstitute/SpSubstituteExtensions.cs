@@ -2,9 +2,9 @@
 
 namespace SPSubstitute
 {
-    public static class SpSubstituteExtensions
+    public static class SPSubstituteExtensions
     {
-        public static void Returns<T>(this T value, SpSubstitute returnThis, params T[] returnThese)
+        public static void Returns<T>(this T value, Substitute returnThis, params T[] returnThese)
             where T : Map
         {
             value.MapSpSubstituteValue(returnThis);

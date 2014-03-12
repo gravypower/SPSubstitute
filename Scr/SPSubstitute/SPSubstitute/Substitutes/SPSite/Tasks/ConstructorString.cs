@@ -1,16 +1,16 @@
-﻿namespace SPSubstitute.Substitutes.SpSite.Tasks
+﻿namespace SPSubstitute.Substitutes.SPSite.Tasks
 {
     using Microsoft.SharePoint.Fakes;
 
     public class ConstructorString : ConstructorBase<string>
     {
-        public ConstructorString(SpSiteSubstitute spFarmSpSiteSubstitute)
-            : base(spFarmSpSiteSubstitute)
+        public ConstructorString(SPSiteSubstitute farmSpSiteSubstitute)
+            : base(farmSpSiteSubstitute)
         {
         }
 
-        public ConstructorString(SpSiteSubstitute spFarmSpSiteSubstitute, Arg args)
-            : base(spFarmSpSiteSubstitute, args)
+        public ConstructorString(SPSiteSubstitute farmSpSiteSubstitute, Arg args)
+            : base(farmSpSiteSubstitute, args)
         {
         }
 
@@ -21,9 +21,9 @@
 
         public override void ConstructorArgRun(ShimSPSite site, string constructorArg)
         {
-            SpSpFarmSpSiteSubstitute.Sites[constructorArg].Shim = site;
+            FarmSpSiteSubstitute.Sites[constructorArg].Shim = site;
 
-            foreach (var action in SpSpFarmSpSiteSubstitute.Sites[constructorArg].Actions)
+            foreach (var action in FarmSpSiteSubstitute.Sites[constructorArg].Actions)
             {
                 action.Invoke(site);
             }
