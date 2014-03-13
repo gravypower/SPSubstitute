@@ -5,9 +5,5 @@
 
     public class SPWebTemplateSubstitute:Substitute<ShimSPWebTemplate, SPWebTemplate>
     {
-        public SPWebTemplateSubstitute()
-        {
-            Invoke();
-        }
     }
 }

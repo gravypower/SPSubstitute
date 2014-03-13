@@ -10,7 +10,7 @@ namespace SPSubstituteTests
     using Microsoft.SharePoint;
 
     [TestFixture]
-    public class SubstituteSpSiteTests : SubstituteTests
+    public class SPSiteSubstituteTests : SubstituteTests
     {
         [Test]
         public void CanSubstituteSiteWithGuid()

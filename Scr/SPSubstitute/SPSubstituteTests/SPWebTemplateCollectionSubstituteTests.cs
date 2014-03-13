@@ -12,7 +12,7 @@
     using SPSubstitute.Substitutes.SpWebTemplateCollection;
 
     [TestFixture]
-    public class SubstituteSpWebTemplateCollectionTests : SubstituteTests
+    public class SPWebTemplateCollectionSubstituteTests : SubstituteTests
     {
         [Test]
         public void SubstituteTemplateCollectionAlsoSubstitutesSiteWithString()
@@ -38,10 +38,10 @@
             //Arrange
             var spWebTemplateCollectionSubstitute = new SPWebTemplateCollectionSubstitute();
 
-            var WebTemplates = new List<SPWebTemplateSubstitute>();
+            var webTemplates = new List<SPWebTemplateSubstitute>();
 
             //Act
-            spWebTemplateCollectionSubstitute.Returns(WebTemplates);
+            spWebTemplateCollectionSubstitute.Returns(webTemplates);
 
             //Assert
             using (var site = new SPSite(new Guid()))

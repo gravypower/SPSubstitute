@@ -2,14 +2,13 @@
 
 using Microsoft.SharePoint.Administration;
 using NUnit.Framework;
-using SPSubstitute;
 using SPSubstitute.Substitutes.SPFarm;
 using SPSubstitute.Substitutes.SPWebApplication;
 
 namespace SPSubstituteTests
 {
     [TestFixture]
-    public class SubstituteSpFarmTests : SubstituteTests
+    public class SPFarmSubstituteTests : SubstituteTests
     {
         [Test]
         public void CanSubstituteSpFarmLocal()

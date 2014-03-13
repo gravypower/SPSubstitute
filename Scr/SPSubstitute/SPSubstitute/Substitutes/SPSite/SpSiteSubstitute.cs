@@ -16,6 +16,8 @@
 
         public PortalNameSubstitute PortalName;
 
+        public AllWebsSubstitute AllWebs;
+
         public SPSiteSubstitute(Guid guid)
             : this()
         {
@@ -43,6 +45,7 @@
             Sites = new Sites();
             WebTemplateCollections = new WebTemplateCollections();
             PortalName = new PortalNameSubstitute(this);
+            AllWebs = new AllWebsSubstitute();
         }
 
         public WebTemplatesSubstitute WebTemplates(uint lcid)

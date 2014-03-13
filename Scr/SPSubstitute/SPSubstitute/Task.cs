@@ -3,7 +3,7 @@
     using Substitutes;
     
     public abstract class Task<TSubstitute>
-        where TSubstitute : Substitute
+        where TSubstitute : ISubstitute
     {
         protected TSubstitute FarmSpSiteSubstitute;
 

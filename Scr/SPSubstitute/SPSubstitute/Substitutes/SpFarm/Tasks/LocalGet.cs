@@ -11,10 +11,13 @@
         public override void Run()
         {
             ShimSPFarm.LocalGet = () =>
+            {
+                foreach (var action in FarmSpSiteSubstitute.Actions)
                 {
-                    this.FarmSpSiteSubstitute.Invoke();
-                    return this.FarmSpSiteSubstitute.SpType;
-                };
+                    action.Invoke(FarmSpSiteSubstitute.Shim);
+                }
+                return FarmSpSiteSubstitute.SpType;
+            };
         }
     }
 }

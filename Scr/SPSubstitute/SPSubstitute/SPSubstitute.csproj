@@ -46,7 +46,6 @@
     <Compile Include="Arg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubstituteContext.cs" />
-    <Compile Include="Substitutes\IMap.cs" />
     <Compile Include="Substitutes\SPFarm\Methods\GetObjectSubstitute.cs" />
     <Compile Include="Substitutes\SPFarm\Collections\Objects.cs" />
     <Compile Include="Substitutes\SPFarm\SPFarmSubstitute.cs" />
@@ -54,18 +53,17 @@
     <Compile Include="Substitutes\SPPersistedObject\SPPersistedObjectSubstitute.cs" />
     <Compile Include="Substitutes\SPSite\Collections\WebTemplateCollections.cs" />
     <Compile Include="Substitutes\SPSite\Methods\OpenWebSubstitute.cs" />
+    <Compile Include="Substitutes\SPSite\Properties\AllWebsSubstitute.cs" />
     <Compile Include="Substitutes\SPSite\Tasks\ConstructorBase.cs" />
     <Compile Include="Substitutes\SPSite\Tasks\ConstructorGuid.cs" />
     <Compile Include="Substitutes\SPSite\Tasks\ConstructorString.cs" />
     <Compile Include="Substitutes\Substitute.cs" />
-    <Compile Include="SPSubstituteExtensions.cs" />
     <Compile Include="Substitutes\SPSite\Collections\Sites.cs" />
     <Compile Include="Substitutes\SPSite\Methods\WebTemplatesSubstitute.cs" />
     <Compile Include="Substitutes\SPSite\SPSiteSubstitute.cs" />
     <Compile Include="Substitutes\SPSite\Properties\PortalNameSubstitute.cs" />
     <Compile Include="Substitutes\SPWebApplication\SPWebApplicationSubstitute.cs" />
     <Compile Include="Substitutes\SPWebTemplateCollection\SPWebTemplateCollectionSubstitute.cs" />
-    <Compile Include="Substitutes\Map.cs" />
     <Compile Include="Substitutes\SPWebTemplate\SPWebTemplateSubstitute.cs" />
     <Compile Include="Substitutes\SPWeb\Collections\WebsCollections.cs" />
     <Compile Include="Substitutes\SPWeb\Properties\WebsSubstitute.cs" />
@@ -77,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Substitutes\SPWebApplication\Properties\" />
+    <Folder Include="Substitutes\SPWebCollection\" />
     <Folder Include="Substitutes\SPWeb\Methods\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

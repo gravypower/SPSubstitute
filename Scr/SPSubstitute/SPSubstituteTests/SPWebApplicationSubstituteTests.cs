@@ -3,7 +3,7 @@
 namespace SPSubstituteTests
 {
     [TestFixture]
-    public class SubstituteSpWebApplicationTests : SubstituteTests
+    public class SPWebApplicationSubstituteTests : SubstituteTests
     {
         [Test]
         public void SomeTest()

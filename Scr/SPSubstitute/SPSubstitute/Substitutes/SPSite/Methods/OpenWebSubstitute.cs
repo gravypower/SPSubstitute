@@ -1,8 +1,10 @@
-﻿namespace SPSubstitute.Substitutes.SPSite.Methods
+﻿using SPSubstitute.Substitutes.SPWeb;
+
+namespace SPSubstitute.Substitutes.SPSite.Methods
 {
     using Microsoft.SharePoint.Fakes;
 
-    public class OpenWebSubstitute : Map
+    public class OpenWebSubstitute
     {
         private readonly SPSiteSubstitute _spSiteSubstitute;
 
@@ -11,15 +13,21 @@
             _spSiteSubstitute = spSiteSubstitute;
         }
 
-        public override void MapObjectValue(object value)
+        public void Returns(SPWebSubstitute web)
         {
             _spSiteSubstitute.Shim = new ShimSPSite();
 
             _spSiteSubstitute.Actions.Add(
                 site =>
                 {
-                    _spSiteSubstitute.Shim.OpenWeb = () => (Microsoft.SharePoint.SPWeb) value;
+                    _spSiteSubstitute.Shim.OpenWeb = () => web.SpType;
+
+                    foreach (var action in web.Actions)
+                    {
+                        action.Invoke(web.Shim);
+                    }
                 });
         }
+
     }
 }

@@ -9,7 +9,7 @@
     using SpWebTemplate;
     using SpWebTemplateCollection;
 
-    public class WebTemplatesSubstitute : Map
+    public class WebTemplatesSubstitute
     {
         private readonly SPSiteSubstitute _spSiteSubstitute;
 
@@ -29,31 +29,29 @@
             _spSiteSubstitute = spSiteSubstitute;
         }
 
-        public override void MapObjectValue(object value)
+        public void Returns(IList<SPWebTemplateSubstitute> templates)
         {
-            if (_args == null)
-            {
-                _spSiteSubstitute.WebTemplateCollections[_lcid] = new SPWebTemplateCollectionSubstitute((SPWebTemplateCollection)value);
-                _spSiteSubstitute.Actions.Add(site => DoMap());
-            }
-            else
-            {
-                _spSiteSubstitute.Shim = new ShimSPSite();
+            _spSiteSubstitute.Shim = new ShimSPSite();
 
-                _spSiteSubstitute.Actions.Add(
-                    site =>
-                        {
-                            _spSiteSubstitute.Shim.GetWebTemplatesUInt32 = lcid =>
-                                {
-                                    var shim = new ShimSPWebTemplateCollection();
+            _spSiteSubstitute.Actions.Add(
+                site =>
+                {
+                    _spSiteSubstitute.Shim.GetWebTemplatesUInt32 = lcid =>
+                    {
+                        var shim = new ShimSPWebTemplateCollection();
 
-                                    var webTemplates = ((List<SPWebTemplateSubstitute>)value).Select(x => x.SpType);
-                                    shim.Bind(webTemplates);
+                        var webTemplates = templates.Select(x => x.SpType);
+                        shim.Bind(webTemplates);
 
-                                    return shim;
-                                };
-                        });
-            }
+                        return shim;
+                    };
+                });
+        }
+
+        public void Returns(SPWebTemplateCollectionSubstitute templates)
+        {
+            _spSiteSubstitute.WebTemplateCollections[_lcid] = templates;
+            _spSiteSubstitute.Actions.Add(site => DoMap());
         }
 
         public void DoMap()

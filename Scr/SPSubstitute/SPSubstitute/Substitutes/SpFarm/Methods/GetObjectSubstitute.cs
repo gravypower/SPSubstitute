@@ -1,10 +1,11 @@
-﻿namespace SPSubstitute.Substitutes.SPFarm.Methods
+﻿using SPSubstitute.Substitutes.SPWebApplication;
+
+namespace SPSubstitute.Substitutes.SPFarm.Methods
 {
     using System;
     using SPPersistedObject;
-    using Microsoft.SharePoint.Administration;
 
-    public class GetObjectSubstitute : Map
+    public class GetObjectSubstitute
     {
         private readonly SPFarmSubstitute _farmSubstitute;
 
@@ -16,9 +17,9 @@
             _farmSubstitute = farmSubstitute;
         }
 
-        public override void MapObjectValue(object value)
+        public void Returns(SPWebApplicationSubstitute spWebApplicationSubstitute)
         {
-            _farmSubstitute.Objects[_objectId] = new SPPersistedObjectSubstitute((SPPersistedObject)value);
+            _farmSubstitute.Objects[_objectId] = new SPPersistedObjectSubstitute(spWebApplicationSubstitute.SpType);
             _farmSubstitute.Actions.Add(site => DoMap());
         }
 

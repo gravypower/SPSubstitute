@@ -1,26 +1,24 @@
 ﻿namespace SPSubstitute.Substitutes.SpWebTemplateCollection
 {
+    using System.Collections.Generic;
+    using SpWebTemplate;
+
     using Microsoft.SharePoint;
     using Microsoft.SharePoint.Fakes;
 
     using SPSite;
 
-    public class SPWebTemplateCollectionSubstitute : Substitute<ShimSPWebTemplateCollection, SPWebTemplateCollection>, IMap
+    public class SPWebTemplateCollectionSubstitute : Substitute<ShimSPWebTemplateCollection, SPWebTemplateCollection>
     {
-        public SPWebTemplateCollectionSubstitute(SPWebTemplateCollection webTemplateCollection)
-        {
-            Shim = new ShimSPWebTemplateCollection(webTemplateCollection);
-        }
-
         public SPWebTemplateCollectionSubstitute()
         {
             Shim = new ShimSPWebTemplateCollection();
         }
 
-        public void MapObjectValue(object value)
+        public void Returns(List<SPWebTemplateSubstitute> webTemplates)
         {
             var site = new SPSiteSubstitute(Arg.Any());
-            site.WebTemplates(Arg.Any()).Returns(value);
+            site.WebTemplates(Arg.Any()).Returns(webTemplates);
         }
     }
 }

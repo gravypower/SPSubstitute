@@ -1,6 +1,6 @@
 ﻿namespace SPSubstitute.Substitutes.SPSite.Properties
 {
-    public class PortalNameSubstitute : Map
+    public class PortalNameSubstitute
     {
         private readonly SPSiteSubstitute _spSiteSubstitute;
 
@@ -11,15 +11,14 @@
             _spSiteSubstitute = spSiteSubstitute;
         }
 
-        public override void MapObjectValue(object value)
+        public void Returns(string portalName)
         {
-            _spSiteSubstitute.Actions.Add(site => DoMap(value));
-            
+            _spSiteSubstitute.Actions.Add(site => DoMap(portalName));
         }
 
-        public void DoMap(object value)
+        public void DoMap(string value)
         {
-            _spSiteSubstitute.Shim.PortalNameGet = () => (string)value;
+            _spSiteSubstitute.Shim.PortalNameGet = () => value;
         }
     }
 }
