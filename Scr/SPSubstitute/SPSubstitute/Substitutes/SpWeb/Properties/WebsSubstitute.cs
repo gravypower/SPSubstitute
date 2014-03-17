@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using SPSubstitute.Substitutes.SPWeb.Collections;
-
-namespace SPSubstitute.Substitutes.SPWeb.Properties
+﻿namespace SPSubstitute.Substitutes.SPWeb.Properties
 {
+    using Shared.Webs;
     using Microsoft.SharePoint.Fakes;
+    using Microsoft.SharePoint;
 
-    public class WebsSubstitute
+    public class WebsSubstitute : WebsBase<ShimSPWeb, SPWeb>
     {
         private readonly SPWebSubstitute _spWebSubstitute;
 
         public WebsSubstitute(SPWebSubstitute spWebSubstitute)
+            : base(spWebSubstitute)
         {
             _spWebSubstitute = spWebSubstitute;
         }
@@ -23,41 +21,9 @@ namespace SPSubstitute.Substitutes.SPWeb.Properties
             return _spWebSubstitute.WebsCollections[webUrl];
         }
 
-        public void Returns(IList<SPWebSubstitute> webs)
+        public override void SetFakesDelegate(System.Func<ShimSPWebCollection> action)
         {
-            _spWebSubstitute.Actions.Add(delegate
-            {
-                _spWebSubstitute.Shim.WebsGet = () =>
-                {
-                    var shim = new ShimSPWebCollection();
-
-                    var webTemplates = webs.Select(x => x.SpType);
-                    shim.Bind(webTemplates);
-
-                    shim.ItemGetInt32 = i => webs[i].SpType;
-
-                    return shim;
-                };
-            });
-        }
-
-        public void Returns(WebsCollections websCollections)
-        {
-            _spWebSubstitute.Actions.Add(delegate
-            {
-                _spWebSubstitute.Shim.WebsGet = () =>
-                {
-                    var shim = new ShimSPWebCollection();
-
-                    var webs = websCollections.SpWebs.Select(x => x.SpType);
-
-                    shim.ItemGetInt32 = i => websCollections.SpWebs[i].SpType;
-
-                    shim.Bind(webs);
-
-                    return shim;
-                };
-            });
+            _spWebSubstitute.Shim.WebsGet = () => action.Invoke();
         }
     }
 }

@@ -2,14 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
-
-    using Microsoft.SharePoint;
-
     using NUnit.Framework;
-
-    using SPSubstitute;
     using SPSubstitute.Substitutes.SpWebTemplate;
     using SPSubstitute.Substitutes.SpWebTemplateCollection;
+    using Microsoft.SharePoint;
 
     [TestFixture]
     public class SPWebTemplateCollectionSubstituteTests : SubstituteTests

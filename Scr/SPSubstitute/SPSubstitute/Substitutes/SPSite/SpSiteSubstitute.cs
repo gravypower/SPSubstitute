@@ -45,7 +45,7 @@
             Sites = new Sites();
             WebTemplateCollections = new WebTemplateCollections();
             PortalName = new PortalNameSubstitute(this);
-            AllWebs = new AllWebsSubstitute();
+            AllWebs = new AllWebsSubstitute(this);
         }
 
         public WebTemplatesSubstitute WebTemplates(uint lcid)

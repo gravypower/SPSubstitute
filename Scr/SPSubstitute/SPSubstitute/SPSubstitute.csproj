@@ -46,6 +46,7 @@
     <Compile Include="Arg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubstituteContext.cs" />
+    <Compile Include="Substitutes\Shared\Webs\WebsBase.cs" />
     <Compile Include="Substitutes\SPFarm\Methods\GetObjectSubstitute.cs" />
     <Compile Include="Substitutes\SPFarm\Collections\Objects.cs" />
     <Compile Include="Substitutes\SPFarm\SPFarmSubstitute.cs" />
