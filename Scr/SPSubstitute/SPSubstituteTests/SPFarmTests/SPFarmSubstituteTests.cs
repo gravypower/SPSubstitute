@@ -1,11 +1,10 @@
 ﻿using System;
-
 using Microsoft.SharePoint.Administration;
 using NUnit.Framework;
 using SPSubstitute.Substitutes.SPFarm;
 using SPSubstitute.Substitutes.SPWebApplication;
 
-namespace SPSubstituteTests
+namespace SPSubstituteTests.SPFarmTests
 {
     [TestFixture]
     public class SPFarmSubstituteTests : SubstituteTests

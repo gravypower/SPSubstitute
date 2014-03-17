@@ -3,10 +3,10 @@ using Microsoft.SharePoint;
 using NUnit.Framework;
 using SPSubstitute.Substitutes.SPSite;
 
-namespace SPSubstituteTests.SPSiteTests
+namespace SPSubstituteTests.SPWebTests
 {
     [TestFixture]
-    public class ConstructedWithGuid : SPSiteSubstituteTests
+    public class Given_SPSite_ConstructedWith_Guid : SPWebSubstituteTests
     {
         private Guid _guild;
 
@@ -15,7 +15,7 @@ namespace SPSubstituteTests.SPSiteTests
         {
             _guild = new Guid("08f1cfef-9898-436d-a6d4-1aaecb22d5e0");
 
-            Sut = new SPSiteSubstitute(_guild);
+            SPSiteSubstitute = new SPSiteSubstitute(_guild);
         }
 
         protected override SPSite GetSite()

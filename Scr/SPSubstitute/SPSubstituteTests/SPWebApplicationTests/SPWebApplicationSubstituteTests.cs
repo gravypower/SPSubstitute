@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace SPSubstituteTests
+namespace SPSubstituteTests.SPWebApplicationTests
 {
     [TestFixture]
     public class SPWebApplicationSubstituteTests : SubstituteTests

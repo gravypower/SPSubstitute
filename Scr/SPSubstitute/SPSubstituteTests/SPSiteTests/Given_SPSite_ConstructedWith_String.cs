@@ -5,7 +5,7 @@ using SPSubstitute.Substitutes.SPSite;
 namespace SPSubstituteTests.SPSiteTests
 {
     [TestFixture]
-    public class ConstructedWithString : SPSiteSubstituteTests
+    public class Given_SPSite_ConstructedWith_String : SPSiteSubstituteTests
     {
         private string _requestUrl;
 

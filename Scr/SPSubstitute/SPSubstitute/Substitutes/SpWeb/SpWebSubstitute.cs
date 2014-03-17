@@ -30,5 +30,10 @@
         }
 
         public WebsSubstitute Webs;
+
+        public static SPWebSubstitute CreateSPWebSubstitute()
+        {
+            return new SPWebSubstitute(Arg.Any());
+        }
     }
 }

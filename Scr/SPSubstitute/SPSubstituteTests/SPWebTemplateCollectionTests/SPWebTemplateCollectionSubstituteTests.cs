@@ -1,12 +1,12 @@
-﻿namespace SPSubstituteTests
-{
-    using System;
-    using System.Collections.Generic;
-    using NUnit.Framework;
-    using SPSubstitute.Substitutes.SpWebTemplate;
-    using SPSubstitute.Substitutes.SpWebTemplateCollection;
-    using Microsoft.SharePoint;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.SharePoint;
+using NUnit.Framework;
+using SPSubstitute.Substitutes.SpWebTemplate;
+using SPSubstitute.Substitutes.SpWebTemplateCollection;
 
+namespace SPSubstituteTests.SPWebTemplateCollectionTests
+{
     [TestFixture]
     public class SPWebTemplateCollectionSubstituteTests : SubstituteTests
     {
