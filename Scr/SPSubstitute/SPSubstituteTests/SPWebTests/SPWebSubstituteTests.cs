@@ -41,7 +41,7 @@ namespace SPSubstituteTests.SPWebTests
             //Arrange
             var spWebSubstitute = new SPWebSubstitute();
 
-            var webSubstitute = SPWebSubstitute.CreateSPWebSubstitute();
+            var webSubstitute = SPWebSubstitute.CreateSPWebSubstituteForReturn();
 
             var webs = new List<SPWebSubstitute>
             {

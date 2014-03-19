@@ -31,7 +31,7 @@
 
         public WebsSubstitute Webs;
 
-        public static SPWebSubstitute CreateSPWebSubstitute()
+        public static SPWebSubstitute CreateSPWebSubstituteForReturn()
         {
             return new SPWebSubstitute(Arg.Any());
         }
