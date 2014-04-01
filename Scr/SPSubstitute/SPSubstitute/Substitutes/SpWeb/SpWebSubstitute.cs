@@ -19,6 +19,7 @@
         {
             WebsCollections = new WebsCollections();
             Webs = new WebsSubstitute(this);
+            Lists = new ListsSubstitute(this);
 
             if (args == null)
             {
@@ -30,6 +31,8 @@
         }
 
         public WebsSubstitute Webs;
+
+        public ListsSubstitute Lists;
 
         public static SPWebSubstitute CreateSPWebSubstituteForReturn()
         {

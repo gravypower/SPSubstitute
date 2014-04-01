@@ -17,12 +17,23 @@ namespace SPSubstituteTests
         public void CanSpyOnRunCodeWithElevatedPrivilegesHasCodeRun()
         {
             //Act
-            SPSecurity.RunWithElevatedPrivileges(() => { 
-                //Some Code
-            });
+            SPSecurity.RunWithElevatedPrivileges(() => { });
 
             //Assert
             Assert.That(SubstituteContext.HasCodeRunWithElevatedPrivileges, Is.True);
+        }
+
+        [Test]
+        public void CanSpyOnRunCodeWithElevatedPrivilegesHasCodeCodeToRunElevated()
+        {
+            //Assign
+            SPSecurity.CodeToRunElevated t = () => { };
+            
+            //Act
+            SPSecurity.RunWithElevatedPrivileges(t);
+
+            //Assert
+            Assert.That(SubstituteContext.HasCodeRunWithElevatedPrivilegesDelegate, Is.EqualTo(t));
         }
     }
 }

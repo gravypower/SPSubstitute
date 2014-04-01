@@ -51,6 +51,7 @@
     <Compile Include="Substitutes\SPFarm\Collections\Objects.cs" />
     <Compile Include="Substitutes\SPFarm\SPFarmSubstitute.cs" />
     <Compile Include="Substitutes\SPFarm\Tasks\LocalGet.cs" />
+    <Compile Include="Substitutes\SPList\SPListSubstitute.cs" />
     <Compile Include="Substitutes\SPPersistedObject\SPPersistedObjectSubstitute.cs" />
     <Compile Include="Substitutes\SPSite\Collections\WebTemplateCollections.cs" />
     <Compile Include="Substitutes\SPSite\Methods\OpenWebSubstitute.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Substitutes\SPSite\Tasks\ConstructorBase.cs" />
     <Compile Include="Substitutes\SPSite\Tasks\ConstructorGuid.cs" />
     <Compile Include="Substitutes\SPSite\Tasks\ConstructorString.cs" />
+    <Compile Include="Substitutes\SPWeb\Properties\ListsSubstitute.cs" />
     <Compile Include="Substitutes\Substitute.cs" />
     <Compile Include="Substitutes\SPSite\Collections\Sites.cs" />
     <Compile Include="Substitutes\SPSite\Methods\WebTemplatesSubstitute.cs" />
@@ -76,7 +78,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Substitutes\SPWebApplication\Properties\" />
-    <Folder Include="Substitutes\SPWebCollection\" />
     <Folder Include="Substitutes\SPWeb\Methods\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

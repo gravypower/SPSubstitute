@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.SharePoint;
 using NUnit.Framework;
+using SPSubstitute.Substitutes.SPList;
 using SPSubstitute.Substitutes.SPSite;
 using SPSubstitute.Substitutes.SPWeb;
 
@@ -60,6 +61,34 @@ namespace SPSubstituteTests.SPWebTests
                     Assert.That(web.Webs, Is.Not.Null);
                     Assert.That(web.Webs[0], Is.Not.Null);
                     Assert.That(web.Webs, Contains.Item(webSubstitute.SpType));
+                }
+            }
+        }
+
+        [Test]
+        public void SomeTest()
+        {
+            //Arrange
+            var spWebSubstitute = new SPWebSubstitute();
+
+            var spListSubstitute = new SPListSubstitute();
+            var lists = new List<SPListSubstitute>
+            {
+                spListSubstitute
+            };
+
+            //Act
+            spWebSubstitute.Lists.Returns(lists);
+
+            //Assert
+            using (var site = GetSite())
+            {
+                using (var web = site.OpenWeb())
+                {
+                    Assert.That(web, Is.SameAs(spWebSubstitute.SpType));
+                    Assert.That(web.Webs, Is.Not.Null);
+                    Assert.That(web.Webs[0], Is.Not.Null);
+                    Assert.That(web.Webs, Contains.Item(spListSubstitute.SpType));
                 }
             }
         }

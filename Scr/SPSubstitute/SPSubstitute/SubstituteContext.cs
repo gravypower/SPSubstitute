@@ -7,13 +7,14 @@ namespace SPSubstitute
     public class SubstituteContext: IDisposable
     {
         protected IDisposable ShimContext;
-
+        
         public SubstituteContext()
         {
             ShimContext = ShimsContext.Create();
             ShimSPSecurity.RunWithElevatedPrivilegesSPSecurityCodeToRunElevated = elevated =>
             {
                 HasCodeRunWithElevatedPrivileges = true;
+                HasCodeRunWithElevatedPrivilegesDelegate = elevated;
                 elevated.Invoke();
             };
 
@@ -21,6 +22,7 @@ namespace SPSubstitute
         }
 
         public bool HasCodeRunWithElevatedPrivileges { get; private set; }
+        public Delegate HasCodeRunWithElevatedPrivilegesDelegate { get; private set; }
 
         public static SubstituteContext CurrentContext { get; private set; }
 
